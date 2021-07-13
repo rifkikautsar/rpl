@@ -1,0 +1,11 @@
+.gambar {
+  background: url("Cincau.jpg") center center;
+  height: 240px;
+}
+.table > tbody > tr > * {
+  vertical-align: middle;
+}
+#msg {
+  padding-top: 1rem;
+  text-align: center;
+}

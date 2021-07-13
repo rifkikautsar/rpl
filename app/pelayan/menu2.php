@@ -99,7 +99,7 @@ if(isset($_POST['batal'])){
         echo "
         <script>
         alert('Pesanan dibatalkan');
-        document.location.href = 'testing.php';
+        document.location.href = 'index.php';
         </script>";
     }
 }
@@ -228,6 +228,7 @@ if(isset($_POST['batal'])){
                                             <p class="card-text">Harga Rp. <?=$row['harga'];?></p>
                                             <p class="card-text">Stok <?=$row['stok'];?></p>
                                         </div>
+                                        <?php if(isset($_POST['id_pesanan'])): ?>
                                         <?php $dt = getIDMenu($_POST['id_pesanan']);?>
                                         <?php if(in_array($row['id_menu'],array_column($dt,'id_menu'))){ ?>
                                         <div class="card-footer">
@@ -243,7 +244,7 @@ if(isset($_POST['batal'])){
                                             </button>
                                         </div>
                                         <?php }; ?>
-
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>

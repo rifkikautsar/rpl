@@ -8,11 +8,9 @@ if(isset($_REQUEST['tambah_pesan'])){
     $str = $_REQUEST['tambah_pesan'];
     $id_menu = substr($str,0,3);
     $hrg = substr($str,4);
-    $no = $_POST['kd_meja'];
     $id_pelanggan = $_POST['id_pel'];
     $id_pesanan = $_POST['id_pesanan'];
     $nama_pel = $_POST['nama_pelanggan'];
-    $meja = $_POST['kd_meja'];
     $id_pel = $_POST['id_pel'];
    
     $sql_tb_pesanan = "insert into pemesanan(id_pesanan,id_pelanggan) values('$id_pesanan','$id_pel')";
@@ -38,6 +36,7 @@ if(isset($_REQUEST['checkout'])){
     
     //update meja
     $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
+    $res=$db->query("UPDATE pemesanan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
     // $kd_meja = $_REQUEST['kd_meja'];
     // //update meja
     // $sql_meja = "UPDATE meja SET meja.status='isi' where kd_meja ='$kd_meja'";

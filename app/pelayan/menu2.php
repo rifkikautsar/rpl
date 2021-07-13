@@ -58,24 +58,7 @@ if(isset($_REQUEST['checkout'])){
         WHERE id_menu = '$id_menu'";
         $res=$db->query($sql);
     }
-    //array pesanan
-    // for($i=0; $i<count($id);$i++){
-    //     $array[]=array("id_menu"=>$id[$i],
-    //                    "nama"=>$menu[$i],
-    //                    "id_pesanan"=>$id_psn,
-    //                    "harga"=>$harga[$i],
-    //                    "jumlah"=>$jumlah[$i]);
-    // }
-    // for($i=0;$i<count($array);$i++){
-    //     $id_menu = $array[$i]['id_menu'];
-    //     $nama_menu = $array[$i]['nama'];
-    //     $jml_menu = $array[$i]['jumlah'];
-    //     $id_psn = $array[$i]['id_pesanan'];
-    //     $harga = $array[$i]['harga'];
-    //     $sql = "UPDATE rincian_pesanan SET jml_pesanan='$jml_menu', sub_total = '$harga'*'$jml_menu'
-    //     WHERE id_menu = '$id_menu' and id_pesanan = '$id_psn'";
-    //     $res=$db->query($sql);
-    // }
+    
     echo "
     <script>
     alert('Pesanan berhasil dibuat');
@@ -88,10 +71,7 @@ if(isset($_REQUEST['simpan'])){
     $id = $_REQUEST['id_menu'];
     $id_psn = $_REQUEST['id_pesanan'];
     $harga = $_REQUEST['harga'];
-    //$kd_meja = $_REQUEST['kd_meja'];
-    // //update meja
-    // $sql_meja = "UPDATE meja SET meja.status='isi' where kd_meja ='$kd_meja'";
-    // $res=$db->query($sql_meja);
+   
     //array pesanan
     for($i=0; $i<count($id);$i++){
         $array[]=array("id_menu"=>$id[$i],
@@ -249,13 +229,13 @@ if(isset($_POST['batal'])){
                                             <p class="card-text">Stok <?=$row['stok'];?></p>
                                         </div>
                                         <?php $dt = getIDMenu($_POST['id_pesanan']);?>
-                                        <!--<?php if(in_array($row['id_menu'],$dt)){ ?>
+                                        <?php if(in_array($row['id_menu'],array_column($dt,'id_menu'))){ ?>
                                         <div class="card-footer">
                                             <button type="button" class="btn btn-danger">
                                                 <i class='uil uil-shopping-basket'></i>&nbsp;Dipesan&nbsp;
                                             </button>
                                         </div>
-                                        <?php } else { ?> -->
+                                        <?php } else { ?>
                                         <div class="card-footer">
                                             <button type="submit" value="<?=$row['id_menu']."-".$row['harga']?>"
                                                 name="tambah_pesan" id="<?=$row['id_menu']?>" class="btn btn-success">
@@ -263,6 +243,7 @@ if(isset($_POST['batal'])){
                                             </button>
                                         </div>
                                         <?php }; ?>
+
                                     </div>
                                 </div>
                                 <?php endforeach; ?>

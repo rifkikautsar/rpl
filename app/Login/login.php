@@ -31,7 +31,7 @@
         }
     }
     </style>
-    <link href="testing.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>

@@ -15,7 +15,7 @@ if(isset($_REQUEST['tambah_pesan'])){
     $meja = $_POST['kd_meja'];
     $id_pel = $_POST['id_pel'];
    
-    $sql_tb_pesanan = "insert into pesanan(id_pesanan,id_pelanggan) values('$id_pesanan','$id_pel')";
+    $sql_tb_pesanan = "insert into pemesanan(id_pesanan,id_pelanggan) values('$id_pesanan','$id_pel')";
     $res=$db->query($sql_tb_pesanan);
     $sql_tb_rincian = "insert into rincian_pesanan(id_menu,id_pesanan) 
                       values ('$id_menu','$id_pesanan')";
@@ -185,7 +185,7 @@ if(isset($_POST['batal'])){
                                     if(isset($_POST['id_pesanan'])){
                                     $id_pesanan = $_POST['id_pesanan'];
                                         if(empty($id_pesanan)){
-                                            $sql_get_id = "SELECT max(id_pesanan) as id_pesanan FROM pesanan";
+                                            $sql_get_id = "SELECT max(id_pesanan) as id_pesanan FROM pemesanan";
                                             $res=$db->query($sql_get_id);
                                             $data=$res->fetch_assoc();
                                             if(empty($data)){

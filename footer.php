@@ -1,5 +1,5 @@
 <!-- Footer-->
-<footer class="py-5 bg-info fixed-bottom">
+<footer class="py-5 bg-inf">
     <div class="container">
         <p class="m-0 text-center text-white">&copy;iCendol. All Right Reserved</p>
     </div>

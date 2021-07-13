@@ -57,7 +57,7 @@ function getIDMenu($id_pesanan){
 function getListMeja(){
 	$db=dbConnect();
 	if($db->connect_errno==0){
-		$sql= "SELECT kd_meja from meja where meja.status='kosong'";
+		$sql= "SELECT no_meja from meja where meja.status='kosong'";
 		$res=$db->query($sql);
 		if($res){
 			$data=$res->fetch_all(MYSQLI_ASSOC);

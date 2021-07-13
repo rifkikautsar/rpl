@@ -165,7 +165,7 @@ if(isset($_POST['batal'])){
                                         $m = getListMeja();
                                         foreach($m as $row){
                                             ?>
-                                            <option value="<?=$row['kd_meja']?>"><?=$row['kd_meja']?>
+                                            <option value="<?=$row['no_meja']?>"><?=$row['no_meja']?>
                                             </option>
                                             <?php
                                         }

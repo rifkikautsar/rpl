@@ -7,14 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Cover Template · Bootstrap v5.0</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
-
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/css/style.css" rel="stylesheet">
     <style>
     .bd-placeholder-img {
         font-size: 1.125rem;
@@ -30,20 +22,17 @@
         }
     }
     </style>
-
-
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
 </head>
 
-<body class="h-100 text-center">
-
-    <div class="container-fluid d-flex w-100 h-100  mx-5 flex-column">
-        <main class="pt-5">
-            <h1>Selamat Datang di Restoran iCendol</h1>
-            <p class="lead">Silahkan login terlebih dahulu</p>
-    </div>
-    </main>
+<body>
+    <div class="container home text-center pt-5">
+        <div class="container-fluid d-flex h-100 mx-5 flex-column">
+            <main class="pt-5">
+                <h1>Selamat Datang di Restoran iCendol</h1>
+                <p class="lead">Silahkan login terlebih dahulu</p>
+        </div>
+        </main>
     </div>
 </body>
 

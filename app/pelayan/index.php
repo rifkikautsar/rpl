@@ -24,17 +24,20 @@ if(isset($_GET['page'])){
 }
 else { ?>
 <!---Welcome Page-->
-<div class="bg">
-    <div class="container-fluid-welcome padding">
-        <div class="row welcome text-center">
-            <div class="col-12">
+
+<body>
+    <div class="home">
+        <div class="container-fluid-welcome padding">
+            <div class="row welcome text-center">
                 <div class="col-12">
-                    <p class="lead">Selamat datang Pelayan.</p>
+                    <div class="col-12">
+                        <p class="lead">Selamat datang Pelayan.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
 <?php
 }
 ?>

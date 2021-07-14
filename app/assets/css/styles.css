@@ -1,129 +1,129 @@
 html,
 body {
-	height: 100%;
-	align-items: center;
-	background-color: white;
-	font-family: 'Poppins', sans-serif;
-    background-attachment: fixed;
+  height: 100%;
+  align-items: center;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  background-attachment: fixed;
 }
 .home {
   height: 100%;
 }
 .cards {
-	display: flex;
-	/* Put a card in the next row when previous cards take all width */
-	flex-wrap: wrap;
-	margin: 0 auto; /* Added */
-	float: none; /* Added */
-	margin-bottom: 10px; /* Added */
-	margin-top: 20px;
+  display: flex;
+  /* Put a card in the next row when previous cards take all width */
+  flex-wrap: wrap;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  margin-top: 20px;
 }
 .form-group {
-	width: 100%;
-	max-width: 500px;
-	padding: 15px;
-	margin: auto;
-	align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+  align-items: center;
 }
 .form-group input[type="text"] {
-	margin-top: 5px;
-	margin-bottom: -1px;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
+  margin-top: 5px;
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .form-group input[type="password"] {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 .form-check {
-	font-weight: 400;
+  font-weight: 400;
 }
 .row {
-	display: flex;
-	flex-wrap: wrap;
-	margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 .gambar {
-	background: url("Cincau.jpg") center center;
-	height: 240px;
+  background: url("Cincau.jpg") center center;
+  height: 240px;
 }
 .table > tbody > tr > * {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 #msg {
-	padding-top: 1rem;
-	text-align: center;
+  padding-top: 1rem;
+  text-align: center;
 }
 
 /*navigation bar*/
 
-nav{
-    background-color: white;
+nav {
+  background-color: white;
 }
 
 .navbar-brand {
-    margin-left: 18px;
+  margin-left: 18px;
 }
 
 .container {
-    position: relative;
-    max-width:1050px;
-    margin: 5px auto;
-    padding: 5px;
-    box-sizing: border-box;
-    /*background-color: lightgrey;*/
+  position: relative;
+  max-width: 1050px;
+  margin: 5px auto;
+  padding: 5px;
+  box-sizing: border-box;
+  /*background-color: lightgrey;*/
 }
 
 .navbar .navbar-nav .nav-link {
-    color: #000000;
-    font-size: 1.1em;
-    transition: all 0.2s;
+  color: #000000;
+  font-size: 1.1em;
+  transition: all 0.2s;
 }
 
-.navbar-nav{
-    margin-left: auto;
+.navbar-nav {
+  margin-left: auto;
 }
 
-.nav-item{
-    padding-left: 10px;
-    padding-right: 10px;
+.nav-item {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /*Underline Hover*/
 
 .navbar .navbar-nav .nav-link:hover {
-    color: #14ff1f;
+  color: #14ff1f;
 }
 
 .nav-link {
-  position:relative;
+  position: relative;
 }
 
 .nav-link:before {
-  display:block;
-  content:"";
-  position:absolute;
-  bottom:5%;
-  left:0;
-  width:0;
-  height:2px;
-  background:#14ff1f;
-  transition:width 0.2s ease;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #14ff1f;
+  transition: width 0.2s ease;
 }
 
 .nav-link:hover:before {
-  width:100%;
+  width: 100%;
 }
 
-.navbar-container hr{
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 3px;
-    color: #000000;
-} 
+.navbar-container hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 3px;
+  color: #000000;
+}

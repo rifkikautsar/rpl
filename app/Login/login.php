@@ -37,7 +37,7 @@
 <body>
     <!-- A card with given width -->
     <div class="col d-flex justify-content-center">
-        <div class="card text-dark bg-light mt-5" style="max-width: 330px;  ">
+        <div class="card text-dark bg-light mt-5 mb-5" style="max-width: 330px;  ">
             <div class="card-header" style="text-align: center;">Login</div>
             <div class="cards-body">
                 <!--Field Username-->

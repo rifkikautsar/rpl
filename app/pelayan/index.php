@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT']."/data/rpl/navbar.php");
+include_once("../../navbar.php");
 include("menu2.php");
-include_once($_SERVER['DOCUMENT_ROOT']."/data/rpl/footer.php");
+include_once("../../footer.php");
 ?>

@@ -27,11 +27,10 @@
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
 </head>
-<body>
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="f01-home.php">
-            <img src="../img/iCendol.png" alt="" width="147" height="35">
+        <a class="navbar-brand" href="">
+            <img src="../assets/images/iCendol.png" alt="" width="147" height="35">
         </a>
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

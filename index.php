@@ -9,12 +9,6 @@ if(isset($_GET['page'])){
             break;
         case 'login':
             include "login.php";
-            break;
-        case 'about':
-            include "about.php";
-            break;
-        case 'contact':
-            include "contact.php";
             break;    
         default:
         echo "Halaman Tidak ditemukan";

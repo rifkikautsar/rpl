@@ -1,4 +1,19 @@
 <?php
+session_start();
+if(isset($_SESSION["jabatan"])){
+    $jabatan = $_SESSION["jabatan"];
+    if($jabatan=="owner"){
+        header("Location: app/owner/");
+    }
+    else if($jabatan=="kasir"){
+        header("Location: app/kasir/");
+    }
+    else if($jabatan=="koki"){
+        header("Location: app/koki/");
+    }else{
+        header("Location: app/pelayan/");
+    }
+};
 include("functions.php");
 if (isset($_GET["error"])) {
 $error = $_GET["error"];
@@ -13,7 +28,9 @@ showError("Anda tidak boleh mengakses halaman sebelumnya karena belum login.
 Silahkan login terlebih dahulu.");
 else
 showError("Unknown Error.");
-}?>
+};
+
+?>
 <?php
 include("navbar-home.php");
 if(isset($_GET['page'])){

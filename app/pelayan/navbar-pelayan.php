@@ -45,13 +45,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page-pelayan" href="index.php">Home</a>
+                        <a class="nav-link" aria-current="page-pelayan" href="../pelayan/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=menu">Daftar Menu</a>
+                        <a class="nav-link" href="menu">Daftar Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="home-pelayan.php?page-pelayan=lpesanan">Pesanan</a>
+                        <a class="nav-link" href="pesanan">Pesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../logout.php">Logout</a>

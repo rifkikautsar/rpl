@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^menu$ index.php?page=menu

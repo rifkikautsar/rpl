@@ -15,6 +15,10 @@ if(isset($_SESSION["jabatan"])){
     }
 };
 include("functions.php");
+
+?>
+<?php
+include("navbar-home.php");
 if (isset($_GET["error"])) {
 $error = $_GET["error"];
 if ($error == 1)
@@ -29,10 +33,6 @@ Silahkan login terlebih dahulu.");
 else
 showError("Unknown Error.");
 };
-
-?>
-<?php
-include("navbar-home.php");
 if(isset($_GET['page'])){
     $page = $_GET['page'];
 

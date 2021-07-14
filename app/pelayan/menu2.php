@@ -216,7 +216,7 @@ if(isset($_POST['batal'])){
                             <?php
                         $k = getMenu();
                         ?>
-                            <div class="row row-cols-1 row-cols-md-4 g-4">
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
                                 <?php foreach($k as $row) : ?>
                                 <div class="col">
                                     <div class="card">
@@ -231,16 +231,16 @@ if(isset($_POST['batal'])){
                                         <?php if(isset($_POST['id_pesanan'])): ?>
                                         <?php $dt = getIDMenu($_POST['id_pesanan']);?>
                                         <?php if(in_array($row['id_menu'],array_column($dt,'id_menu'))){ ?>
-                                        <div class="card-footer">
+                                        <div class="card-footer">&nbsp;&nbsp;&nbsp;
                                             <button type="button" class="btn btn-danger">
-                                                <i class='uil uil-shopping-basket'></i>&nbsp;Dipesan&nbsp;
+                                                <i class='uil uil-shopping-basket'></i>Dipesan
                                             </button>
                                         </div>
                                         <?php } else { ?>
-                                        <div class="card-footer">
+                                        <div class="card-footer">&nbsp;&nbsp;&nbsp;
                                             <button type="submit" value="<?=$row['id_menu']."-".$row['harga']?>"
                                                 name="tambah_pesan" id="<?=$row['id_menu']?>" class="btn btn-success">
-                                                <i class='uil uil-shopping-basket'></i>&nbsp;Tambah&nbsp;
+                                                <i class='uil uil-shopping-basket'></i>Tambah
                                             </button>
                                         </div>
                                         <?php }; ?>
@@ -279,7 +279,7 @@ if(isset($_POST['batal'])){
                             <table class="table table-bordered table-responsive-md">
                                 <thead class="table-light">
                                     <tr>
-                                        <th style="width: 50%">Menu Pesanan</th>
+                                        <th style="width: 50%">Pesanan</th>
                                         <th style="width: 30%">Jumlah</th>
                                         <th style="width: 20%">Aksi</th>
                                     </tr>
@@ -314,8 +314,8 @@ if(isset($_POST['batal'])){
                                     <?php endforeach; ?>
                                     <?php if($list) : ?>
                                     <tr>
-                                        <td colspan="3"><button type="submit" name="simpan" value=""
-                                                class="btn btn-success btn-mini">Simpan</button>
+                                        <td colspan="3">&emsp;&nbsp;<button type="submit" name="simpan" value=""
+                                                class="btn btn-success btn-mini">Simpan</button>&emsp;
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#staticBackdrop">

@@ -52,6 +52,9 @@ body {
 .table > tbody > tr > * {
   vertical-align: middle;
 }
+.table {
+  color: black;
+}
 #msg {
   padding-top: 1rem;
   text-align: center;

@@ -5,7 +5,7 @@ if(isset($_GET['page'])){
 
     switch($page){
         case 'home':
-            include "home.php";
+            include "index.php";
             break;
         case 'login':
             include "login.php";

@@ -45,7 +45,7 @@
 <div class="navbar-container">
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="f01-home.php">
-            <img src="img/iCendol.png" alt="" width="147" height="35">
+            <img src="app/assets/images/iCendol.png" alt="" width="147" height="35">
         </a>
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -55,10 +55,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="home.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="home.php?page=login">Login</a>
+                        <a class="nav-link" href="index.php?page=login">Login</a>
                     </li>
                 </ul>
             </div>

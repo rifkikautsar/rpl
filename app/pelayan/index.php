@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["id_pegawai"]))
+header("Location: ../../index.php?error=4");
+?>
+<?php
 include_once("navbar-pelayan.php");
 ?>
 <?php
@@ -32,7 +37,7 @@ else { ?>
             <div class="row welcome text-center pt-5">
                 <div class="col-12">
                     <div class="col-12">
-                        <h1>Selamat Datang Pelayan</h1>
+                        <h1>Selamat Datang <?=$_SESSION['nama']; ?></h1>
                     </div>
                 </div>
             </div>

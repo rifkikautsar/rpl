@@ -49,7 +49,7 @@
                         <a class="nav-link" href="home-pelayan.php?page-pelayan=lpesanan">Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../index.php">Logout</a>
+                        <a class="nav-link" href="../../logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Restoran iCendol</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
@@ -27,16 +27,18 @@
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
 </head>
+
 <body>
-<div class="navbar-container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="f01-home.php">
-            <img src="../img/iCendol.png" alt="" width="147" height="35">
-        </a>
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="f01-home.php">
+                <img src="../img/iCendol.png" alt="" width="147" height="35">
+            </a>
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -46,8 +48,10 @@
                             <a class="nav-link" href="home-owner.php?page-owner=laporan">Laporan</a>
                         </li>
                         <li class="nav-item">
-						<span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;">!</span>
-						<a class="nav-link" href="home-owner.php?page-owner=konfirmasi">Konfirmasi<span class="sr-only">(current)</span></a>
+                            <span class="badge badge-pill badge-primary"
+                                style="float:right;margin-bottom:-10px;">!</span>
+                            <a class="nav-link" href="home-owner.php?page-owner=konfirmasi">Konfirmasi<span
+                                    class="sr-only">(current)</span></a>
                         <li class="nav-item">
                             <a class="nav-link" href="home-owner.php?page-owner=dmenu">Daftar Menu</a>
                         </li>
@@ -56,13 +60,13 @@
                         </li>
                     </ul>
                 </div>
-        </div>
-    </nav>
-<hr>
-</div>
+            </div>
+        </nav>
+        <hr>
+    </div>
 
-<script type = "text/JavaScript">
-function onNav() {
+    <script type="text/JavaScript">
+        function onNav() {
   var path = window.location.href; //Mengambil data URL dari address bar
   $("nav a").each(function() {
     //Jika URL pada menu ini sesuai dengan path, maka
@@ -75,4 +79,3 @@ function onNav() {
 </script>
 
 </body>
-

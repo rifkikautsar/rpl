@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Restoran iCendol</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
@@ -33,33 +33,36 @@
             <img src="../assets/images/iCendol.png" alt="" width="147" height="35">
         </a>
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page-koki" href="home-koki.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="home-koki.php?page-koki=dmenu">Daftar Menu</a>
-                        </li><li class="nav-item">
-                            <a class="nav-link" href="home-koki.php?page-koki=form-menu">Form Menu</a>
-                        </li><li class="nav-item">
-                            <a class="nav-link" href="home-koki.php?page-koki=lpesanan">List Pesanan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="home-koki.php?page-koki=logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page-koki" href="home-koki.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home-koki.php?page-koki=dmenu">Daftar Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home-koki.php?page-koki=form-menu">Form Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home-koki.php?page-koki=lpesanan">List Pesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home-koki.php?page-koki=logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-<hr>
+    <hr>
 </div>
 
-<script type = "text/JavaScript">
-function onNav() {
+<script type="text/JavaScript">
+    function onNav() {
   var path = window.location.href; //Mengambil data URL dari address bar
   $("nav a").each(function() {
     //Jika URL pada menu ini sesuai dengan path, maka
@@ -72,4 +75,3 @@ function onNav() {
 </script>
 
 </body>
-

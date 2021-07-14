@@ -24,6 +24,7 @@ if(isset($_GET['page'])){
 }
 else { ?>
 <!---Welcome Page-->
+<title>Home</title>
 
 <body>
     <div class="home">

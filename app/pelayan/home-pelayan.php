@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
 <title>Owner Page</title>
-<link href="css/style.css" rel="stylesheet">
-</head>
-<body>
 <?php include("navbar-pelayan.php"); ?>
-
 <?php
 if (isset($_GET['page-pelayan'])){
     $page = $_GET['page-pelayan'];
@@ -29,20 +22,21 @@ if (isset($_GET['page-pelayan'])){
     
 }
 else { ?>
-        <!---Welcome Page-->
-        <div class ="bg">
-            <div class = "container-fluid-welcome padding">
-                <div class = "row welcome text-center">
-                    <div class = "col-12">
-                        <div class = "col-12">
-                        <p class = "lead">Selamat datang Pelayan.</p>
-                        </div>
-                    </div>
+<!---Welcome Page-->
+<div class="bg">
+    <div class="container-fluid-welcome padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                <div class="col-12">
+                    <p class="lead">Selamat datang Pelayan.</p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 <?php
 }
 ?>
 </body>
+
 </html>

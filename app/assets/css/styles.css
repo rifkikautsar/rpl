@@ -6,6 +6,9 @@ body {
 	font-family: 'Poppins', sans-serif;
     background-attachment: fixed;
 }
+.home {
+  height: 100%;
+}
 .cards {
 	display: flex;
 	/* Put a card in the next row when previous cards take all width */

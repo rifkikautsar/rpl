@@ -1,0 +1,124 @@
+/*Universal*/
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-attachment: fixed;
+}
+
+/*navigation bar*/
+
+nav{
+    background-color: white;
+}
+
+.navbar-brand {
+    margin-left: 18px;
+}
+
+.container {
+    position: relative;
+    max-width:1050px;
+    margin: 5px auto;
+    padding: 5px;
+    box-sizing: border-box;
+    /*background-color: lightgrey;*/
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #000000;
+    font-size: 1.1em;
+    transition: all 0.2s;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+.nav-item{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*Underline Hover*/
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #14ff1f;
+}
+
+.nav-link {
+  position:relative;
+}
+
+.nav-link:before {
+  display:block;
+  content:"";
+  position:absolute;
+  bottom:5%;
+  left:0;
+  width:0;
+  height:2px;
+  background:#14ff1f;
+  transition:width 0.2s ease;
+}
+
+.nav-link:hover:before {
+  width:100%;
+}
+
+.navbar-container hr{
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+    color: #000000;
+} 
+
+/*
+.navbar-nav a:hover {
+    background-color: limegreen;
+    color: #fff;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+
+.navbar-nav{
+    
+    margin: 5px 0;
+    padding: 1px 3px;
+} */
+
+/*
+nav ul li a {
+    display: block;
+    margin: 10px 0;
+    padding:10px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+} */
+
+/*Home*/
+.lead {
+    left: 50%;
+    top: 50%;
+    padding: 40px;
+}
+
+
+/*Login Form*/
+
+.form-box{
+position: absolute;
+width: 400px;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+padding: 40px;
+border-radius: 10px;
+box-sizing: border-box;
+
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}

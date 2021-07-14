@@ -12,8 +12,8 @@ if(isset($_GET['page'])){
         case 'menu':
             include "menu2.php";
             break;
-        case 'about':
-            include "about.php";
+        case 'logout':
+            include "../../index.php";
             break;
         case 'contact':
             include "contact.php";
@@ -28,10 +28,10 @@ else { ?>
 <body>
     <div class="home">
         <div class="container-fluid-welcome padding">
-            <div class="row welcome text-center">
+            <div class="row welcome text-center pt-5">
                 <div class="col-12">
                     <div class="col-12">
-                        <p class="lead">Selamat datang Pelayan.</p>
+                        <h1>Selamat Datang Pelayan</h1>
                     </div>
                 </div>
             </div>

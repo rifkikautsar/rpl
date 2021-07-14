@@ -1,5 +1,5 @@
 <?php
-include("navbar.php");
+include("navbar-home.php");
 if(isset($_GET['page'])){
     $page = $_GET['page'];
 

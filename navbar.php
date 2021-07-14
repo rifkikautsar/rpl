@@ -19,6 +19,7 @@
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
     <link rel="stylesheet" href="/app/assets/css/styles.css">
+
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light">

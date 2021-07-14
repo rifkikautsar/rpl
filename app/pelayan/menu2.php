@@ -2,7 +2,7 @@
 
 <?php
 error_reporting(0);
-include_once($_SERVER['DOCUMENT_ROOT']."/data/rpl/functions.php");
+include_once("../../functions.php");
 $db=dbConnect();
 if(isset($_REQUEST['tambah_pesan'])){
     $str = $_REQUEST['tambah_pesan'];

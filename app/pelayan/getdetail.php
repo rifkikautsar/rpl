@@ -11,7 +11,7 @@ if(isset($_POST['id_pesanan'])){
         $total += $row['sub_total'];
         $output .= '
         <tr>
-            <td>'.$row["nama"].'</td>
+            <td>'.$row["nama_menu"].'</td>
             <td>'.$row["jml_pesanan"].'</td>
             <td>'.$row["sub_total"].'</td>
         </tr>';

@@ -54,19 +54,13 @@
                     <td>test</td>
                 </tr>
                 <tfoot>
-                    <td></td>
-                    <td style="text-align: center;">Pajak</td>
-                    <td>
-                    <td>
+                    <td colspan=4 style="text-align: center;">Pajak</td>
                     <td>Rp.3500</td>
                     </td>
                     </td>
                 </tfoot>
                 <tfoot>
-                    <td></td>
-                    <td style="text-align: center;">Total Bayar</td>
-                    <td>
-                    <td>
+                    <td colspan=4 style="text-align: center;">Total Bayar</td>
                     <td>Rp.3500</td>
                     </td>
                     </td>

@@ -1,2 +1,3 @@
 RewriteEngine On
 RewriteRule ^menu$ index.php?page=menu
+RewriteRule ^pesanan$ index.php?page=pesanan

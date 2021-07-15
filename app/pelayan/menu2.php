@@ -4,6 +4,7 @@
 error_reporting(0);
 include_once("../../functions.php");
 $db=dbConnect();
+date_default_timezone_set('Asia/Jakarta');
 if(isset($_REQUEST['tambah_pesan'])){
     $str =$db->escape_string($_REQUEST['tambah_pesan']);
     $id_menu = $db->escape_string(substr($str,0,3));
@@ -33,10 +34,9 @@ if(isset($_REQUEST['checkout'])){
     $id_psn = $db->escape_string($_REQUEST['id_pesanan']);
     $meja = $db->escape_string($_REQUEST['kd_meja']);
     $id_pelanggan = $db->escape_string($_REQUEST['id_pel']);
-    
     //update meja
     $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
-    $res=$db->query("UPDATE pemesanan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
+    $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE() where id_pelanggan = '$id_pelanggan'");
     // $kd_meja = $_REQUEST['kd_meja'];
     // //update meja
     // $sql_meja = "UPDATE meja SET meja.status='isi' where kd_meja ='$kd_meja'";

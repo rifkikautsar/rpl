@@ -47,8 +47,8 @@ if(isset($_GET['page'])){
         case 'logout':
             include "../../index.php";
             break;
-        case 'contact':
-            include "contact.php";
+        case 'pesanan':
+            include "pesanan.php";
             break;    
         default:
         echo "Halaman Tidak ditemukan";

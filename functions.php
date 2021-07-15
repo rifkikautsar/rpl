@@ -102,6 +102,38 @@ function getHarga(){
 	else
 		return FALSE;
 }
+function getDaftarPesanan(){
+	$db=dbConnect();
+	if($db->connect_errno==0){
+		$sql= "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,pel.nama from pemesanan p join pelanggan pel using(id_pelanggan) order by p.id_pesanan ASC";
+		$res=$db->query($sql);
+		if($res){
+			$data=$res->fetch_all(MYSQLI_ASSOC);
+			$res->free();
+			return $data;
+		}
+		else
+			return FALSE; 
+	}
+	else
+		return FALSE;
+}
+function getRincianPesanan($id_pesanan){
+	$db=dbConnect();
+	if($db->connect_errno==0){
+		$sql= "SELECT * from rincian_pesanan where id_pesanan = '$id_pesanan'";
+		$res=$db->query($sql);
+		if($res){
+			$data=$res->fetch_all(MYSQLI_ASSOC);
+			$res->free();
+			return $data;
+		}
+		else
+			return FALSE; 
+	}
+	else
+		return FALSE;
+}
 function showError($message){
 	?>
 <div class="alert alert-danger d-flex align-items-center" role="alert">

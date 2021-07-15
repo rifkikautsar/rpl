@@ -85,7 +85,29 @@
         </div>
         <div class="col d-flex justify-content-end ">
             <div class="container-fluid d-flex flex-row-reverse pb-4" style="margin-right: 200px;">
-                <button type="button" class="btn btn-outline-success">Bayar</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                    data-bs-target="#transaksiModal">Bayar</button>
+                <!-- Modal -->
+                <div class="modal fade" id="transaksiModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Info Transaksi</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                Kembalian Anda Rp. 5.000,00
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Oke</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </body>

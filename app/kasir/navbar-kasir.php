@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,36 +28,41 @@
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
 </head>
+
 <body>
-<div class="navbar-container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="f01-home.php">
-            <img src="../img/iCendol.png" alt="" width="147" height="35">
-        </a>
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="f01-home.php">
+                <img src="../img/iCendol.png" alt="" width="147" height="35">
+            </a>
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page-kasir" href="home-kasir.php">Home</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="home-kasir.php?page-kasir=lpesanan">List Pesanan</a>
+                            <a class="nav-link" href="index.php?page=lpesanan">List Pesanan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="home-kasir.php?page-kasir=logout">Logout</a>
+                            <a class="nav-link" href="index.php?page=transaksi">Transaksi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../logout.php">Logout</a>
                         </li>
                     </ul>
                 </div>
-        </div>
-    </nav>
-<hr>
-</div>
+            </div>
+        </nav>
+        <hr>
+    </div>
 
-<script type = "text/JavaScript">
-function onNav() {
+    <script type="text/JavaScript">
+        function onNav() {
   var path = window.location.href; //Mengambil data URL dari address bar
   $("nav a").each(function() {
     //Jika URL pada menu ini sesuai dengan path, maka
@@ -69,4 +75,3 @@ function onNav() {
 </script>
 
 </body>
-

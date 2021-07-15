@@ -8,8 +8,6 @@
     user-select: none;
 }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet" />
 
     <body>
         <div class="container">

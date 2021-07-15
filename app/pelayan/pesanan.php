@@ -8,7 +8,7 @@ $db=dbConnect();
     <div class="h-100 text-center pt-4">
         <h3>List Pesanan</h3>
         <center>
-            <div class="col-xl-10 col-lg-6">
+            <div class="col-xl-10 col-lg-8">
                 <div class="card shadow mb-1">
                     <div class="card-header py-2 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Pesanan (10)</h6>

@@ -15,7 +15,7 @@
                 <div class="py-5 text-center">
                     <h2>Bayar</h2>
                 </div>
-                <div class="container-fluid d-flex flex-row pb-4" style="margin-left: 200px;">
+                <div class="container-fluid d-flex flex-row pb-4" style="margin-left: 130px;">
                     <div class="p-2 bd-highlight">ID Pemesanan</div>
                     <div class="card text-center" style="width: 5rem; height: auto;">
                         <div class="card-header">
@@ -25,9 +25,9 @@
                     </div>
             </main>
         </div>
-        <div class="col d-flex justify-content-center">
-            <table class="table table-sm table-bordered border-dark table-hover rounded">
-                <thead class="table-green">
+        <div class="col d-flex justify-content-center pb-5  ">
+            <table class="tableT table-bordered border-dark table-hover rounded">
+                <thead class="tableT-green">
                     <tr>
                         <th>ID Menu</th>
                         <th>Nama Minuman</th>
@@ -72,5 +72,20 @@
                     </td>
                 </tfoot>
             </table>
+        </div>
+        <div class="col d-flex justify-content-end ">
+            <div class="container-fluid d-flex flex-row-reverse pb-4" style="margin-right: 200px;">
+                <div class="card text-center" style="width: auto; height: auto;">
+                    <div class="card-header">
+                        Rp. 50.000,00
+                    </div>
+                </div>
+                <div class="p-2 me-4 bd-highlight">Dibayar : </div>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-end ">
+            <div class="container-fluid d-flex flex-row-reverse pb-4" style="margin-right: 200px;">
+                <button type="button" class="btn btn-outline-success">Bayar</button>
+            </div>
         </div>
     </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Owner Page</title>
+<title>Page Koki</title>
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>

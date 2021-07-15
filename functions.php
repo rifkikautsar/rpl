@@ -149,4 +149,49 @@ function showError($message){
 </div>
 <?php
 }
+
+function validasiMenu($data) {
+	$db=dbConnect();
+
+	$id_menu = $db->escape_string($_POST["idmenu"]);
+    $nama = $db->escape_string($_POST["nama-menu"]);
+    $harga = $db->escape_string($_POST["harga-menu"]);
+    $stok = $db->escape_string($_POST["stok"]);
+
+	//validasi ID Menu
+    $sql = "select id_menu from menu where id_menu = '$id_menu'";
+    $res = $db->query($sql);
+    $menudata = $res->fetch_all(MYSQLI_ASSOC);
+
+    foreach ($menudata as $menudata) {
+
+        if ($menudata) {
+            echo "<script>
+            alert('ID Menu yang dimasukkan sudah tersedia');
+            </script>";
+            return false; 
+        } 
+    }
+
+	//validasi Nama Menu
+    $sql = "select nama from menu where nama = '$nama'";
+    $res = $db->query($sql);
+    $menudata = $res->fetch_all(MYSQLI_ASSOC);
+
+    foreach ($menudata as $menudata) {
+
+        if ($menudata) {
+            echo "<script>
+            alert('Nama Menu yang dimasukkan sudah tersedia');
+            </script>";
+            return false; 
+        } 
+    }
+
+	//Masukkan data menu ke database
+	$db->query("insert into menu VALUES ('$id_menu','$nama','$harga','$stok','Cendol ........','ditunda')");
+
+	return mysqli_affected_rows($db);
+}
+
 ?>

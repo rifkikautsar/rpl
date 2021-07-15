@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Owner Page</title>
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body>
-    <?php include("navbar-kasir.php"); ?>
-
-    <?php
+<title>Kasir Page</title>
+<?php include("navbar-kasir.php"); ?>
+<?php
 if (isset($_GET['page'])){
     $page = $_GET['page'];
 
@@ -19,11 +10,8 @@ if (isset($_GET['page'])){
     else if ($page == 'lpesanan'){
         include "lpesanan-kasir.php";
     }
-    else if ($page == 'logout'){
-        include "../home.php";
-    }
     else if($page == 'transaksi'){
-        include "../transaksi.php";
+        include "transaksi.php";
     }
     else {
         echo "Halaman Tidak Ditemukan!";
@@ -31,21 +19,25 @@ if (isset($_GET['page'])){
     
 }
 else { ?>
-    <!---Welcome Page-->
-    <div class="bg">
+<!---Welcome Page-->
+<title>Home</title>
+
+<body>
+    <div class="home">
         <div class="container-fluid-welcome padding">
-            <div class="row welcome text-center">
+            <div class="row welcome text-center pt-5">
                 <div class="col-12">
                     <div class="col-12">
-                        <p class="lead">Selamat datang Kasir</p>
+                        <h1>Selamat Datang Kasir</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <?php
+</body>
+<?php
 }
 ?>
-</body>
-
-</html>
+<?php
+include_once("../../footer.php");
+?>

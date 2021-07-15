@@ -36,7 +36,8 @@ if(isset($_REQUEST['checkout'])){
     $id_pelanggan = $db->escape_string($_REQUEST['id_pel']);
     //update meja
     $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
-    $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE() where id_pelanggan = '$id_pelanggan'");
+    $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE(), pemesanan.status = 'belum' where id_pelanggan = '$id_pelanggan'");
+
     // $kd_meja = $_REQUEST['kd_meja'];
     // //update meja
     // $sql_meja = "UPDATE meja SET meja.status='isi' where kd_meja ='$kd_meja'";
@@ -109,26 +110,11 @@ if(isset($_POST['batal'])){
     <div class="container">
         <form method="post" name="f">
             <div class="row">
-                <!-- Area Chart -->
                 <div class="col-xl-8 col-lg-7">
                     <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
+                        <!-- Card Header -->
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Menu Minuman</h6>
-                            <!-- <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div> -->
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
@@ -204,7 +190,7 @@ if(isset($_POST['batal'])){
                                     </td>
                                     <?php if(isset($_POST['id_pel'])) : ?>
                                     <td><button name="batal" value="batal" class="btn btn-danger"
-                                            style="width: 8em; ">Batal</button></td>
+                                            style="width: 8em; ">Batalkan</button></td>
                                     <?php endif; ?>
                                 </tr>
                             </table>

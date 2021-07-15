@@ -105,7 +105,7 @@ function getHarga(){
 function getDaftarPesanan(){
 	$db=dbConnect();
 	if($db->connect_errno==0){
-		$sql= "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,pel.nama from pemesanan p join pelanggan pel using(id_pelanggan) order by p.id_pesanan ASC";
+		$sql= "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,pel.nama,pel.id_pelanggan from pemesanan p join pelanggan pel using(id_pelanggan) where p.status = 'belum' order by p.id_pesanan ASC";
 		$res=$db->query($sql);
 		if($res){
 			$data=$res->fetch_all(MYSQLI_ASSOC);
@@ -121,7 +121,7 @@ function getDaftarPesanan(){
 function getRincianPesanan($id_pesanan){
 	$db=dbConnect();
 	if($db->connect_errno==0){
-		$sql= "SELECT * from rincian_pesanan where id_pesanan = '$id_pesanan'";
+		$sql= "SELECT menu.nama as nama_menu, menu.harga,rp.id_pesanan, rp.jml_pesanan, rp.sub_total from rincian_pesanan rp join menu using(id_menu) where rp.id_pesanan = '$id_pesanan'";
 		$res=$db->query($sql);
 		if($res){
 			$data=$res->fetch_all(MYSQLI_ASSOC);

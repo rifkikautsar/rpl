@@ -5,13 +5,13 @@ error_reporting(0);
 include_once("../../functions.php");
 $db=dbConnect();
 if(isset($_REQUEST['tambah_pesan'])){
-    $str = $_REQUEST['tambah_pesan'];
-    $id_menu = substr($str,0,3);
-    $hrg = substr($str,4);
-    $id_pelanggan = $_POST['id_pel'];
-    $id_pesanan = $_POST['id_pesanan'];
-    $nama_pel = $_POST['nama_pelanggan'];
-    $id_pel = $_POST['id_pel'];
+    $str =$db->escape_string($_REQUEST['tambah_pesan']);
+    $id_menu = $db->escape_string(substr($str,0,3));
+    $hrg = $db->escape_string(substr($str,4));
+    $id_pelanggan = $db->escape_string($_POST['id_pel']);
+    $id_pesanan = $db->escape_string($_POST['id_pesanan']);
+    $nama_pel = $db->escape_string($_POST['nama_pelanggan']);
+    $id_pel = $db->escape_string($_POST['id_pel']);
    
     $sql_tb_pesanan = "insert into pemesanan(id_pesanan,id_pelanggan) values('$id_pesanan','$id_pel')";
     $res=$db->query($sql_tb_pesanan);
@@ -20,19 +20,19 @@ if(isset($_REQUEST['tambah_pesan'])){
     $res2=$db->query($sql_tb_rincian);
 }
 if(isset($_REQUEST['hapus_pesan'])){
-    $str = $_POST['hapus_pesan'];
-    $id_menu = substr($str,0,3);
-    $id_pesanan = substr($str,4);
+    $str = $db->escape_string($_POST['hapus_pesan']);
+    $id_menu = $db->escape_string(substr($str,0,3));
+    $id_pesanan = $db->escape_string(substr($str,4));
     $sql_hapus = "delete from rincian_pesanan where id_menu='$id_menu' and id_pesanan ='$id_pesanan'" ;
     $res=$db->query($sql_hapus);
 }
 if(isset($_REQUEST['checkout'])){
-    $jumlah = $_REQUEST['jumlah'];
-    $menu = $_REQUEST['nama_menu'];
+    $jumlah = $db->escape_string($_REQUEST['jumlah']);
+    $menu = $db->escape_string($_REQUEST['nama_menu']);
     $id = $_REQUEST['id_menu'];
-    $id_psn = $_REQUEST['id_pesanan'];
-    $meja = $_REQUEST['kd_meja'];
-    $id_pelanggan = $_REQUEST['id_pel'];
+    $id_psn = $db->escape_string($_REQUEST['id_pesanan']);
+    $meja = $db->escape_string($_REQUEST['kd_meja']);
+    $id_pelanggan = $db->escape_string($_REQUEST['id_pel']);
     
     //update meja
     $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
@@ -92,7 +92,7 @@ if(isset($_REQUEST['simpan'])){
     }
 }
 if(isset($_POST['batal'])){
-    $id_pelanggan = $_POST['id_pel'];
+    $id_pelanggan = $db->escape_string($_POST['id_pel']);
     $sql = "DELETE from pelanggan where id_pelanggan = '$id_pelanggan'";
     $res = $db->query($sql);
     if($res){
@@ -387,7 +387,9 @@ if(isset($_POST['batal'])){
 </body>
 <script>
 $(document).ready(function() {
-    $(".tampil").hide();
+    if (($("#kd_meja option:selected").val() == '')) {
+        $(".tampil").hide();
+    }
 });
 
 $("#kd_meja").change(function() {

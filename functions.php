@@ -121,7 +121,7 @@ function getDaftarPesanan(){
 function getRincianPesanan($id_pesanan){
 	$db=dbConnect();
 	if($db->connect_errno==0){
-		$sql= "SELECT * from rincian_pesanan where id_pesanan = '$id_pesanan'";
+		$sql= "SELECT menu.nama, menu.harga, rp.jml_pesanan,rp.sub_total from rincian_pesanan rp join menu using(id_menu) where rp.id_pesanan = '$id_pesanan'";
 		$res=$db->query($sql);
 		if($res){
 			$data=$res->fetch_all(MYSQLI_ASSOC);

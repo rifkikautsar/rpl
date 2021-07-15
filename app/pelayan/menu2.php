@@ -135,30 +135,25 @@ if(isset($_POST['batal'])){
                             <table class="table table-borderless table-responsive-md">
                                 <tr>
                                     <td>No Meja</td>
-                                    <td><select name="kd_meja" id="kd_meja" onchange="show()">
+                                    <td><select name="kd_meja" id="kd_meja">
                                             <option
                                                 value="<?php echo(isset($_POST['kd_meja'])?$_POST['kd_meja']:"");?>">
                                                 <?php echo(isset($_POST['kd_meja'])?$_POST['kd_meja']:"Pilih Meja");?>
                                             </option>
-                                            <?php
-                                        $m = getListMeja();
-                                        foreach($m as $row){
-                                            ?>
-                                            <option value="<?=$row['no_meja']?>"><?=$row['no_meja']?>
-                                            </option>
-                                            <?php
-                                        }
-                                        ?>
+                                            <?php $m = getListMeja(); ?>
+                                            <?php foreach($m as $row): ?>
+                                            <option value="<?=$row['no_meja']?>"><?=$row['no_meja']?></option>
+                                            <?php endforeach; ?>
                                         </select></td>
                                 </tr>
-                                <tr>
+                                <tr class="tampil">
                                     <td>Nama</td>
-                                    <td><input type="text" name="nama_pelanggan" id="nama_pelanggan" onblur="ceknama()"
-                                            autocomplete="off" value="<?php
+                                    <td><input type="text" name="nama_pelanggan" id="nama_pelanggan" autocomplete="off"
+                                            value="<?php
                                             echo(isset($_POST['nama_pelanggan'])?$_POST['nama_pelanggan']:"");
                                             ?>"></td>
                                 </tr>
-                                <tr>
+                                <tr class="tampil">
                                     <td>ID Pesanan</td>
                                     <td><input type="text" name="id_pesanan" id="id_pesanan" size="5" readonly value="<?php
                                     if(isset($_POST['id_pesanan'])){
@@ -178,7 +173,7 @@ if(isset($_POST['batal'])){
                                 };
                                             ?>"></td>
                                 </tr>
-                                <tr>
+                                <tr class="tampil">
                                     <td>ID Pel</td>
                                     <td><input type="text" name="id_pel" id="id_pel" size="5" readonly value="<?php
                                 if(isset($_POST['id_pel'])){
@@ -390,5 +385,18 @@ if(isset($_POST['batal'])){
         </form>
     </div>
 </body>
+<script>
+$(document).ready(function() {
+    $(".tampil").hide();
+});
+
+$("#kd_meja").change(function() {
+    if ($("#kd_meja option:selected").val() == '') {
+        $(".tampil").hide();
+    } else {
+        $(".tampil").show();
+    }
+});
+</script>
 
 </html>

@@ -18,7 +18,7 @@
     }
     </style>
     <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
 <body class="bg-light">

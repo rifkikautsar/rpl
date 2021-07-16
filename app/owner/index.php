@@ -14,7 +14,7 @@ if (isset($_GET['page'])){
         include "konfirmasi.php";
     }
     else if ($page == 'dmenu'){
-        include "daftar-menu-owner.php";
+        include "dmenu.php";
     }
     else {
         echo "Halaman Tidak Ditemukan!";

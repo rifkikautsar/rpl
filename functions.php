@@ -157,6 +157,7 @@ function validasiMenu($data) {
     $nama = $db->escape_string($_POST["nama-menu"]);
     $harga = $db->escape_string($_POST["harga-menu"]);
     $stok = $db->escape_string($_POST["stok"]);
+	$keterangan = $db->escape_string($_POST['keterangan']);
 
 	//validasi ID Menu
     $sql = "select id_menu from menu where id_menu = '$id_menu'";
@@ -189,9 +190,24 @@ function validasiMenu($data) {
     }
 
 	//Masukkan data menu ke database
-	$db->query("insert into menu VALUES ('$id_menu','$nama','$harga','$stok','Cendol ........','ditunda')");
+	$db->query("insert into menu VALUES ('$id_menu','$nama','$harga','$stok','$keterangan','ditunda')");
 
 	return mysqli_affected_rows($db);
 }
-
+function getMenuBaru(){
+	$db=dbConnect();
+	if($db->connect_errno==0){
+		$sql="SELECT * from menu where menu.status='ditunda'";
+		$res=$db->query($sql);
+		if($res){
+			$data=$res->fetch_all(MYSQLI_ASSOC);
+			$res->free();
+			return $data;
+		}
+		else
+			return FALSE; 
+	}
+	else
+		return FALSE;
+}
 ?>

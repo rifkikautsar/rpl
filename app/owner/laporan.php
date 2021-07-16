@@ -1,4 +1,4 @@
-<title>Laporan</title>
+<title>Laporan Keuangan</title>
 <style>
 body {
     height: 100%;
@@ -14,7 +14,7 @@ body {
 </style>
 
 <body>
-    <h1 class="text-center py-2">Laporan</h1>
+    <h1 class="text-center py-2">Laporan Keuangan</h1>
     <main>
         <div class="container-fluid d-flex pb-4" style="margin-left: auto;">
             <div class="p-2 bd-highlight">Bulan</div>

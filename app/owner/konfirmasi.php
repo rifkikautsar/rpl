@@ -8,10 +8,10 @@ include_once ("../../functions.php");
 $db=dbConnect();
 if(isset($_POST['setuju'])){
     $id_menu = $_POST['id_menu'];
-    $nama = $_POST['nama'];
-    $harga = $_POST['harga'];
-    $stok = $_POST['stok'];
-    $sql = "REPLACE into menu values('$id_menu','$nama','$harga','$stok','Cendol ....','disajikan')";
+    // $nama = $_POST['nama'];
+    // $harga = $_POST['harga'];
+    // $stok = $_POST['stok'];
+    $sql = "UPDATE menu SET menu.status='disajikan' where id_menu='$id_menu'";
     $res=$db->query($sql);
 
     if($res){
@@ -68,7 +68,8 @@ if(!empty($data)){
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?=$row['nama']; ?></h5>
+                                        <input type="hidden" name="id_menu" value="<?=$row['id_menu'];?>">
+                                        <h5 class="card-title"><?=$row['nama'];?></h5>
                                         <p class="card-text"><?=$row['keterangan']; ?>
                                         </p>
                                         <p class="card-text">Harga : Rp. <?=$row['harga']; ?><br>Stok :
@@ -88,7 +89,7 @@ if(!empty($data)){
                         <!-- Modal Setuju -->
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Konfirmasi Menu</h5>
@@ -111,7 +112,7 @@ if(!empty($data)){
                         <!-- Modal Tidak Setuju -->
                         <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="staticBackdropLabel">Konfirmasi Menu</h5>

@@ -233,7 +233,7 @@ $('#insert_form').on("submit", function(event) {
         alert("stok tidak boleh kosong");
     } else {
         $.ajax({
-            url: "insert.php",
+            url: "ubah.php",
             method: "POST",
             data: $('#insert_form').serialize(),
             beforeSend: function() {

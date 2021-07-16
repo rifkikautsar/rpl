@@ -19,7 +19,14 @@
                     <div class="p-2 bd-highlight">ID Pemesanan</div>
                     <div class="card text-center" style="width: 5rem; height: auto;">
                         <div class="card-header">
-                            T001
+                            <?php
+	                    include_once("../../functions.php");
+                        $db = dbconnect();
+                        if($db->connect_errno == 0 ){
+                        if(isset($_GET["Id_pesanan"])){
+                        $id_pesanan = $_GET["Id_pesanan"];
+                        echo $id_pesanan;
+                        ?>
                         </div>
 
                     </div>
@@ -28,13 +35,7 @@
         <div class="col d-flex justify-content-center pb-5  ">
             <table class="tableT table-bordered border-dark table-hover rounded">
                 <thead class="tableT-green">
-                <?php
-	                    include_once("../../functions.php");
-                        $db = dbconnect();
-                        if($db->connect_errno == 0 ){
-                        if(isset($_GET["Id_pesanan"])){
-                        $id_pesanan = $_GET["Id_pesanan"];
-                    
+                    <?php
                         $sql =  "SELECT pemesanan.`id_pesanan`, menu.`id_menu`, menu.`nama`, rincian_pesanan.`jml_pesanan`, menu.`harga`, rincian_pesanan.`sub_total` FROM pemesanan
                             INNER JOIN rincian_pesanan ON  pemesanan.`id_pesanan` = rincian_pesanan.`id_pesanan`
                             INNER JOIN menu ON menu.`id_menu` = rincian_pesanan.`id_menu` where pemesanan.id_pesanan = '$id_pesanan'";
@@ -47,38 +48,62 @@
 
                 <!-- Isi table -->
                 <tr>
-                        <th>Id Pesanan</th>
-			            <th>Id Menu</th>
-			            <th>Nama Minuman</th>
-			            <th>Jumlah</th>
-			            <th>Harga</th>
-			            <th>Subtotal</th>
+                    <th>Id Pesanan</th>
+                    <th>Id Menu</th>
+                    <th>Nama Minuman</th>
+                    <th>Jumlah</th>
+                    <th>Harga</th>
+                    <th>Subtotal</th>
                 </tr>
 
                 <?php
 		            $data = $res->fetch_all(MYSQLI_ASSOC);
-		            foreach($data as $dt){	
+		            foreach($data as $dt){
+                    $id_pesanan = $dt['id_pesanan'];
                 ?>
 
                 <tr>
-                        <td><?php echo $dt["id_pesanan"]; ?></td>
-				        <td><?php echo $dt["id_menu"]; ?></td>
-				        <td><?php echo $dt["nama"]; ?></td>
-				        <td><?php echo $dt["jml_pesanan"]; ?></td>
-				        <td><?php echo $dt["harga"]; ?></td>
-				        <td>Rp. <?php echo number_format($dt["sub_total"],0,",","."); ?></td>
+                    <td><?php echo $dt["id_pesanan"]; ?></td>
+                    <td><?php echo $dt["id_menu"]; ?></td>
+                    <td><?php echo $dt["nama"]; ?></td>
+                    <td><?php echo $dt["jml_pesanan"]; ?></td>
+                    <td><?php echo $dt["harga"]; ?></td>
+                    <td>Rp. <?php echo number_format($dt["sub_total"],0,",","."); ?></td>
                 </tr>
                 <?php
 			
 		    }
 	?>
-        <tr>
-			<td colspan="5" align="center">Pajak</td>
-			</tr>
-			<tr>
-			<td colspan="5" align="center">Total Bayar</td>
-		</tr>
-        <?php
+                <tfoot>
+                    <tr>
+                        <td colspan=4 style="text-align: center;">Sub Total Bayar</td>
+                        <td colspan=2 style="text-align: center;">
+                            <?php
+                    $sql="SELECT SUM(sub_total) as total_bayar FROM rincian_pesanan WHERE id_pesanan='$id_pesanan'";
+                    $result=$db->query($sql);
+                    if($result){
+                        $row=$result->fetch_assoc();
+                    echo "Rp. ".number_format($row['total_bayar'],'0',',','.');
+                    }
+                    ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan=4 style="text-align: center;">Pajak</td>
+                        <td colspan=2 style="text-align: center;"><?php
+                        $pajak = $row['total_bayar']*10/100;
+                        echo "Rp. ".number_format($pajak,'0',',','.');
+                        ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan=4 style="text-align: center;">Total Bayar</td>
+                        <td colspan=2 style="text-align: center;"><?php
+                        $total = $row['total_bayar']+$pajak;
+                        echo "Rp. ".number_format($total,'0',',','.');
+                        ?></td>
+                    </tr>
+                </tfoot>
+                <?php
 		        $res->free();
             }else
 			        echo "Gagal Eksekusi SQL : "." : ".$db->error."<br>";
@@ -91,18 +116,7 @@
 
 		    ?>
 
-                <tfoot>
-                    <td colspan=4 style="text-align: center;">Pajak</td>
-                    <td>Rp.3500</td>
-                    </td>
-                    </td>
-                </tfoot>
-                <tfoot>
-                    <td colspan=4 style="text-align: center;">Total Bayar</td>
-                    <td>Rp.3500</td>
-                    </td>
-                    </td>
-                </tfoot>
+
             </table>
         </div>
         <div class="col d-flex justify-content-end ">

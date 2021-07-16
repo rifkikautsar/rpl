@@ -33,7 +33,7 @@ else { ?>
             $data = getMenuBaru();
             if(!empty($data)):
             ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-warning" role="alert">
                 Anda memiliki pengajuan menu baru yang harus ditinjau. Silakan klik <a href="index.php?page=konfirmasi"
                     class="alert-link">disini</a>. Atau Anda dapat klik pada bagian 'Konfirmasi' di Navigasi
             </div>

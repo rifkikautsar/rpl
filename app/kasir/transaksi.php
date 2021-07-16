@@ -28,31 +28,69 @@
         <div class="col d-flex justify-content-center pb-5  ">
             <table class="tableT table-bordered border-dark table-hover rounded">
                 <thead class="tableT-green">
-                    <tr>
-                        <th>ID Menu</th>
-                        <th>Nama Minuman</th>
-                        <th>Jumlah</th>
-                        <th>Harga</th>
-                        <th>Subtotal</th>
-                    </tr>
+                <?php
+	                    include_once("../../functions.php");
+                        $db = dbconnect();
+                        if($db->connect_errno == 0 ){
+                        if(isset($_GET["Id_pesanan"])){
+                        $id_pesanan = $_GET["Id_pesanan"];
+                    
+                        $sql =  "SELECT pemesanan.`id_pesanan`, menu.`id_menu`, menu.`nama`, rincian_pesanan.`jml_pesanan`, menu.`harga`, rincian_pesanan.`sub_total` FROM pemesanan
+                            INNER JOIN rincian_pesanan ON  pemesanan.`id_pesanan` = rincian_pesanan.`id_pesanan`
+                            INNER JOIN menu ON menu.`id_menu` = rincian_pesanan.`id_menu` where pemesanan.id_pesanan = '$id_pesanan'";
+                            $res = $db->query($sql);
+                    
+                        if($res){
+                ?>
                 </thead>
 
 
                 <!-- Isi table -->
                 <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
+                        <th>Id Pesanan</th>
+			            <th>Id Menu</th>
+			            <th>Nama Minuman</th>
+			            <th>Jumlah</th>
+			            <th>Harga</th>
+			            <th>Subtotal</th>
                 </tr>
+
+                <?php
+		            $data = $res->fetch_all(MYSQLI_ASSOC);
+		            foreach($data as $dt){	
+                ?>
+
                 <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
+                        <td><?php echo $dt["id_pesanan"]; ?></td>
+				        <td><?php echo $dt["id_menu"]; ?></td>
+				        <td><?php echo $dt["nama"]; ?></td>
+				        <td><?php echo $dt["jml_pesanan"]; ?></td>
+				        <td><?php echo $dt["harga"]; ?></td>
+				        <td>Rp. <?php echo number_format($dt["sub_total"],0,",","."); ?></td>
                 </tr>
+                <?php
+			
+		    }
+	?>
+        <tr>
+			<td colspan="5" align="center">Pajak</td>
+			</tr>
+			<tr>
+			<td colspan="5" align="center">Total Bayar</td>
+		</tr>
+        <?php
+		        $res->free();
+            }else
+			        echo "Gagal Eksekusi SQL : "." : ".$db->error."<br>";
+		    }
+
+            }else
+                    echo "Gagal Koneksi : "." : ".$db->connect_error."<br>";
+	
+	
+
+		    ?>
+
                 <tfoot>
                     <td colspan=4 style="text-align: center;">Pajak</td>
                     <td>Rp.3500</td>

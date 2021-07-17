@@ -1,4 +1,4 @@
-<title>Laporan Keuangan</title>
+<title>Laporan Keuangan | Owner</title>
 <style>
 body {
     height: 100%;
@@ -12,6 +12,11 @@ body {
     user-select: none;
 }
 </style>
+<?php
+include_once("../../functions.php");
+$db=dbConnect();
+if($db->connect_errno==0){
+?>
 
 <body>
     <div class="home">
@@ -36,40 +41,26 @@ body {
                     <option value="12">Desember</option>
                 </select>
             </div>
-            <div class="col d-flex justify-content-center pb-5  ">
-                <table class="table table-striped table-hover rounded" style="min-width: 700px; max-width: 50%;">
-                    <thead>
-                        <tr>
-                            <th>Minggu 1</th>
-                            <th>Minggu 2</th>
-                            <th>Minggu 3</th>
-                            <th>Minggu 4</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                    </tr>
-                    <tr>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                    </tr>
-                </table>
+            <div class="col d-flex justify-content-center pb-5 detail">
             </div>
         </main>
     </div>
 </body>
+<?php } ?>
 <script>
 $(document).ready(function() {
     $("#bulan").on("change", function() {
-        alert($("#bulan").val());
-    })
+        var bulan = $("#bulan").val();
+        $.ajax({
+            url: "getlaporan.php",
+            method: "post",
+            data: {
+                bulan: bulan
+            },
+            success: function(data) {
+                $(".detail").html(data);
+            }
+        });
+    });
 });
 </script>

@@ -1,4 +1,4 @@
-<title>Daftar Menu</title>
+<title>Daftar Menu | Owner</title>
 
 <body>
     <div class="container">
@@ -12,10 +12,12 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="row row-cols-1 row-cols-md-4 g-4">
-                            <?php $k = getMenu(); foreach($k as $row) : ?>
+                            <?php $k = getMenu(); foreach($k as $row) :
+                                $nama_file = $row['file'];?>
                             <div class="col">
                                 <div class="card">
-                                    <img src="../assets/images/M01.jpg" class="card-img-top" alt="...">
+                                    <img src=<?="../assets/images/$nama_file"?> style="width: 480; height: 200px;"
+                                        class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= $row['nama'];?> </h5>
                                         <p class="card-text"><?= $row['keterangan'];?>

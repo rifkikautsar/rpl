@@ -47,10 +47,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page-owner" href="../owner/">Home</a>
+                            <a class="nav-link" aria-current="page-owner" href="home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=laporan">Laporan</a>
+                            <a class="nav-link" href="laporan">Laporan</a>
                         </li>
                         <li class="nav-item">
                             <?php
@@ -63,10 +63,9 @@
                             <?php
                             };
                             ?>
-                            <a class="nav-link" href="index.php?page=konfirmasi">Konfirmasi<span
-                                    class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="konfirmasi">Konfirmasi<span class="sr-only">(current)</span></a>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php?page=dmenu">Daftar Menu</a>
+                            <a class="nav-link" href="menu">Daftar Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../../logout.php">Logout</a>

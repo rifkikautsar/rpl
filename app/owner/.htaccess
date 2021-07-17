@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^home$ index.php
+RewriteRule ^menu$ index.php?page=menu
+RewriteRule ^laporan$ index.php?page=laporan
+RewriteRule ^konfirmasi$ index.php?page=konfirmasi

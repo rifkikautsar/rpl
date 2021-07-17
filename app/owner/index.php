@@ -13,7 +13,7 @@ if (isset($_GET['page'])){
     else if ($page == 'konfirmasi'){
         include "konfirmasi.php";
     }
-    else if ($page == 'dmenu'){
+    else if ($page == 'menu'){
         include "dmenu.php";
     }
     else {
@@ -23,7 +23,7 @@ if (isset($_GET['page'])){
 }
 else { ?>
 <!---Welcome Page-->
-<title>Home</title>
+<title>Home | Owner</title>
 
 <body>
     <div class="home">

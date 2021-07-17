@@ -1,4 +1,5 @@
-<?php  
+<div class="container h-100">
+    <?php  
  include("../../functions.php");
  $db=dbConnect();
  if(!empty($_POST))  
@@ -54,3 +55,4 @@
       echo $output;  
  }  
  ?>
+</div>

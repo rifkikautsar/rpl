@@ -157,7 +157,7 @@ function validasiMenu($data) {
     $nama = $db->escape_string($_POST["nama-menu"]);
     $harga = $db->escape_string($_POST["harga-menu"]);
     $stok = $db->escape_string($_POST["stok"]);
-	$keterangan = $db->escape_string($_POST['keterangan']);
+	$keterangan = $db->escape_string($_POST['keterangan']); 
 
 	//validasi ID Menu
     $sql = "select id_menu from menu where id_menu = '$id_menu'";
@@ -178,9 +178,7 @@ function validasiMenu($data) {
     $sql = "select nama from menu where nama = '$nama'";
     $res = $db->query($sql);
     $menudata = $res->fetch_all(MYSQLI_ASSOC);
-
     foreach ($menudata as $menudata) {
-
         if ($menudata) {
             echo "<script>
             alert('Nama Menu yang dimasukkan sudah tersedia');
@@ -188,10 +186,37 @@ function validasiMenu($data) {
             return false; 
         } 
     }
-
+	$namaFile = $_FILES['file']['name'];
+	$x = explode('.', $namaFile);
+	$ekstensi = strtolower(end($x));
+	$ekstensiYangDibolehkan = [
+		'image/png',
+		'image/jpg',
+		'image/jpeg',
+		'image/webp'
+	];
+	$ukuranFile = $_FILES['file']['size'];
+    $error = $_FILES['file']['error'];
+    $tmpName = $_FILES['file']['tmp_name'];
+	if (!in_array(mime_content_type($namaFile), $ekstensiYangDibolehkan)) {
+		echo "
+		<script>
+		alert('File tidak sesuai!');
+		document.location.href = 'index.php';
+		</script>";
+    }else if($ukuranFile > 1000 * 1000){
+		echo "
+		<script>
+		alert('File terlalu besar!');
+		document.location.href = 'index.php';
+		</script>";
+	}
+	else {
+	$file = $id_menu.".".$ekstensi;
+    move_uploaded_file($tmpName,$_SERVER["DOCUMENT_ROOT"]."/data/rpl/app/assets/images/".$file);
 	//Masukkan data menu ke database
-	$db->query("insert into menu VALUES ('$id_menu','$nama','$harga','$stok','$keterangan','ditunda')");
-
+	$db->query("insert into menu VALUES ('$id_menu','$nama','$harga','$stok','$keterangan','ditunda','$file')");
+	}
 	return mysqli_affected_rows($db);
 }
 function getMenuBaru(){

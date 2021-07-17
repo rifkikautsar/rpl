@@ -57,10 +57,24 @@ if(isset($_GET['page'])){
 else { ?>
 <!---Welcome Page-->
 <title>Home</title>
+<?php
+include_once("../../functions.php");
+$db=dbConnect();
+$sql="SELECT * from pemesanan where ket='pickup'";
+$res=$db->query($sql);
+    if($res){
+        $data = $res->fetch_all(MYSQLI_ASSOC);
+    }else echo "GAGAL SQL : ".$db->error
+?>
 
 <body>
     <div class="home">
         <div class="container-fluid-welcome padding">
+            <?php if(!empty($data)): ?>
+            <div class="alert alert-warning" role="alert">
+                Anda memiliki pesanan yang harus di pickup.
+            </div>
+            <?php endif;?>
             <div class="row welcome text-center pt-5">
                 <div class="col-12">
                     <div class="col-12">

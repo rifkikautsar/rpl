@@ -105,7 +105,7 @@ function getHarga(){
 function getDaftarPesanan(){
 	$db=dbConnect();
 	if($db->connect_errno==0){
-		$sql= "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,pel.nama,pel.id_pelanggan from pemesanan p join pelanggan pel using(id_pelanggan) where p.status = 'belum' order by p.id_pesanan ASC";
+		$sql= "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,p.ket, pel.nama,pel.id_pelanggan from pemesanan p join pelanggan pel using(id_pelanggan) where p.status = 'belum' order by p.id_pesanan ASC";
 		$res=$db->query($sql);
 		if($res){
 			$data=$res->fetch_all(MYSQLI_ASSOC);

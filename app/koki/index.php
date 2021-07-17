@@ -9,22 +9,23 @@ if(isset($_GET['page'])){
         case 'home':
             include "index.php";
             break;
+        case 'form':
+            include "form-menu.php";
+            break;
+        case 'pesanan':
+            include "pesanan.php";
+            break;
         case 'menu':
-            include "menu2.php";
-            break;
-        case 'about':
-            include "about.php";
-            break;
-        case 'contact':
-            include "contact.php";
+            include "dmenu.php";
             break;
         default:
         echo "Halaman Tidak ditemukan";
     }
 }
 else { ?>
-
+<title>Home</title>
 <!---Welcome Page-->
+
 <body>
     <div class="home">
         <div class="container-fluid-welcome padding">

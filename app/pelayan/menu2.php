@@ -36,7 +36,7 @@ if(isset($_REQUEST['checkout'])){
     $id_pelanggan = $db->escape_string($_REQUEST['id_pel']);
     //update meja
     $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
-    $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE(), pemesanan.status = 'belum' where id_pelanggan = '$id_pelanggan'");
+    $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE(), pemesanan.status = 'belum', pemesanan.ket='proses' where id_pelanggan = '$id_pelanggan'");
 
     // $kd_meja = $_REQUEST['kd_meja'];
     // //update meja

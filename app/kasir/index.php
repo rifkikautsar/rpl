@@ -1,4 +1,3 @@
-<title>Kasir Page</title>
 <?php include("navbar-kasir.php"); ?>
 <?php
 if (isset($_GET['page'])){
@@ -7,7 +6,7 @@ if (isset($_GET['page'])){
     if ($page == 'home'){
         include "index.php";
     }
-    else if ($page == 'lpesanan'){
+    else if ($page == 'pesanan'){
         include "lpesanan-kasir.php";
     }
     else if($page == 'transaksi'){
@@ -20,7 +19,7 @@ if (isset($_GET['page'])){
 }
 else { ?>
 <!---Welcome Page-->
-<title>Home</title>
+<title>Home | Kasir</title>
 
 <body>
     <div class="home">

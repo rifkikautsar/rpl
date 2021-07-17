@@ -1,4 +1,4 @@
-<title>List Pesanan</title>
+<title>List Pesanan | Kasir</title>
 <style>
 body {
     height: 100%;

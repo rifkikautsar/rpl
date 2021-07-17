@@ -1,4 +1,4 @@
-    <title>Bayar</title>
+    <title>Pembayaran | Kasir</title>
     <style>
 .bd-placeholder-img {
     font-size: 1.125rem;

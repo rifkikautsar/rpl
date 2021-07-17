@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^home$ index.php
+RewriteRule ^transaksi$ index.php?page=transaksi
+RewriteRule ^pesanan$ index.php?page=pesanan

@@ -45,13 +45,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=lpesanan">List Pesanan</a>
+                        <a class="nav-link" href="pesanan">List Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=transaksi">Transaksi</a>
+                        <a class="nav-link" href="transaksi">Transaksi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../logout.php">Logout</a>

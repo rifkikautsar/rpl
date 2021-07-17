@@ -200,8 +200,10 @@
                                     Masukkan uang pembayaran terlebih dahulu ya
                                 </div>
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="submit"
-                                        id="submit">Oke</button>
+                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" name="submit"
+                                        id="submit">Bayar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" name="oke"
+                                        id="oke">Kembali</button>
                                 </div>
                             </div>
                         </div>
@@ -222,14 +224,17 @@ $(document).ready(function() {
     $(".bayar").on('click', function() {
         if ($("#pembayaran").val() == "") {
             $(".isi").html("Masukkan uang pembayaran terlebih dahulu ya");
+            $("#submit").hide();
             $("#transaksiModal").modal("show");
         } else if (parseFloat($("#pembayaran").val()) < parseFloat(tbayar)) {
             $(".isi").html("Jumlah uang pembayaran tidak valid!");
+            $("#submit").hide();
             $("#transaksiModal").modal("show");
         } else {
             var uang = $("#pembayaran").val();
             var kembalian = parseFloat(uang) - parseFloat(tbayar);
             $(".isi").html("Kembalian Anda : Rp. " + kembalian);
+            $("#submit").show();
             $("#transaksiModal").modal("show");
         }
     })

@@ -45,16 +45,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page-koki" href="index.php">Home</a>
+                        <a class="nav-link" aria-current="page-koki" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page-koki" href="index.php?page=menu">Daftar Menu</a>
+                        <a class="nav-link" aria-current="page-koki" href="menu">Daftar Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=form">Form Menu</a>
+                        <a class="nav-link" href="form">Form Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=pesanan">List Pesanan</a>
+                        <a class="nav-link" href="pesanan">List Pesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../logout.php">Logout</a>

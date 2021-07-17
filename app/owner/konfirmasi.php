@@ -1,7 +1,7 @@
-<title>Konfirmasi Menu Baru</title>
+<title>Konfirmasi Menu Baru | Owner</title>
 
 <body>
-    <div class="container">
+    <div class="container h-100">
         <div class="row justify-content-center">
             <?php
 include_once ("../../functions.php");
@@ -28,20 +28,41 @@ if(isset($_POST['setuju'])){
     }
 };
 if(isset($_POST['batal'])){
-    $id_menu = $_POST['id_menu'];
-    $sql = "DELETE from menu where id_menu = '$id_menu'";
-    $res=$db->query($sql);
-    if($res){
-        echo "
-        <script>
-        alert('Menu baru berhasil dibatalkan');
-        document.location.href = 'index.php';
-        </script>";
+    $str = $db->escape_string($_POST['batal']);
+    $hasil = explode("-",$str);
+    $id_menu = $hasil[0];
+    $file = $hasil[1];
+    if(file_exists($_SERVER["DOCUMENT_ROOT"]."/data/rpl/app/assets/images/$file")){
+        unlink($_SERVER["DOCUMENT_ROOT"]."/data/rpl/app/assets/images/$file");
+        $sql = "DELETE from menu where id_menu = '$id_menu'";
+        $res=$db->query($sql);
+        if($res){
+            echo "
+            <script>
+            alert('Menu baru berhasil dibatalkan');
+            document.location.href = 'konfirmasi';
+            </script>";
+        }else{
+            echo "
+            <script>
+            alert('Gagal membatalkan menu baru');
+            </script>";
+        }
     }else{
-        echo "
-        <script>
-        alert('Gagal membatalkan menu baru');
-        </script>";
+        $sql = "DELETE from menu where id_menu = '$id_menu'";
+        $res=$db->query($sql);
+        if($res){
+            echo "
+            <script>
+            alert('Menu baru berhasil dibatalkan');
+            document.location.href = 'konfirmasi';
+            </script>";
+        }else{
+            echo "
+            <script>
+            alert('Gagal membatalkan menu baru');
+            </script>";
+        }
     }
 }
 if(isset($_POST['ubah'])){
@@ -57,7 +78,7 @@ if(isset($_POST['ubah'])){
         echo "
         <script>
         alert('Menu baru berhasil diubah');
-        document.location.href = 'index.php?page=konfirmasi';
+        document.location.href = 'konfirmasi';
         </script>";
     }else{
         echo "
@@ -80,13 +101,14 @@ if(!empty($data)){
             <form action="" method="POST">
                 <div class="card shadow mb-4">
                     <div class="row row-cols-1 g-4 justify-content-center">
-                        <?php foreach($data as $row):?>
+                        <?php foreach($data as $row):
+                            $nama_file = $row['file'];?>
                         <input type="hidden" name="id_menu" value="<?=$row['id_menu']; ?>">
                         <div class="card mb-3" style="max-width: 768px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="../assets/images/M01.jpg" class="img-fluid rounded-start" alt="..."
-                                        style="width: 480px; height: 200px;">
+                                    <img src=<?="../assets/images/$nama_file"?> class="img-fluid rounded-start"
+                                        alt="..." style="width: 480px; height: 200px;">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -147,7 +169,7 @@ if(!empty($data)){
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-danger" name="batal"
-                                            value="<?=$row['id_menu'];?>">Yakin</button>
+                                            value="<?=$row['id_menu']."-".$row['file'];?>">Yakin</button>
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Kembali</button>
                                     </div>
@@ -248,7 +270,7 @@ $('#insert_form').on("submit", function(event) {
                     confirmButtonText: 'Ok!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.location.href = "index.php?page=konfirmasi";
+                        document.location.href = "konfirmasi";
                     }
                 })
             },

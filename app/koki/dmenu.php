@@ -1,4 +1,4 @@
-<title>Daftar Menu</title>
+<title>Daftar Menu | Koki</title>
 
 <body>
     <div class="container">
@@ -15,10 +15,12 @@
                             <?php include_once("../../functions.php");
                             $db=dbConnect();
                             ?>
-                            <?php $k = getMenu(); foreach($k as $row) : ?>
+                            <?php $k = getMenu(); foreach($k as $row) :
+                                $nama_file =$row['file']; ?>
                             <div class="col">
                                 <div class="card">
-                                    <img src="../assets/images/M01.jpg" class="card-img-top" alt="...">
+                                    <img src=<?="../assets/images/$nama_file"?> style="width: 480; height: 200px;"
+                                        class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= $row['nama'];?> </h5>
                                         <p class="card-text"><?= $row['keterangan'];?>

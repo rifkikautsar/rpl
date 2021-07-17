@@ -23,7 +23,7 @@ if(isset($_GET['page'])){
     }
 }
 else { ?>
-<title>Home</title>
+<title>Home | Koki</title>
 <!---Welcome Page-->
 
 <body>

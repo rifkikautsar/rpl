@@ -2,7 +2,10 @@
 include("../../functions.php");
 $keyword = $_GET["keyword"];
 $db=dbConnect();
-$sql = "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,p.ket,pel.nama,pel.id_pelanggan from pemesanan p join pelanggan pel using(id_pelanggan) where p.no_meja like '%$keyword%' or pel.nama like '%$keyword%' or p.id_pesanan like '%$keyword%' or p.tgl_pesan like '%$keyword%' and p.status = 'belum'";
+$sql = "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,p.ket,pel.nama,pel.id_pelanggan from pemesanan p join pelanggan pel using(id_pelanggan) where p.no_meja like '%$keyword%' and p.status = 'belum' 
+or pel.nama like '%$keyword%' and p.status = 'belum' 
+or p.id_pesanan like '%$keyword%' and p.status = 'belum' 
+or p.tgl_pesan like '%$keyword%' and p.status = 'belum'";
 $res=$db->query($sql);
 $list=$res->fetch_all(MYSQLI_ASSOC);
 ?>
@@ -91,9 +94,6 @@ $(document).ready(function() {
                 $("#staticBackdrop").modal("show");
             }
         })
-    });
-    $(".edit").on("click", function() {
-        var id_pesanan = $(this).attr("id");
     });
     $(".selesai").on("click", function() {
         var id_pesanan = $(this).attr("id");

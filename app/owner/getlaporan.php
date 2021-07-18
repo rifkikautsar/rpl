@@ -3,6 +3,30 @@
     footer {
         visibility: hidden;
     }
+
+    .navbar-container {
+        visibility: hidden;
+    }
+
+    #pilihan {
+        visibility: hidden;
+    }
+
+    .cetak {
+        visibility: hidden;
+    }
+
+    .save {
+        visibility: hidden;
+    }
+
+    @page {
+        margin: 0;
+    }
+
+    body {
+        margin: 2cm;
+    }
 }
 </style>
 
@@ -27,6 +51,7 @@ function bulan($bulan){
     else if($bulan==12) echo "Desember";
 }
 ?>
+
 <div class="justify-content-center">
     <h5>Periode Bulan : <?=bulan($bulan);?> <?=$tahun;?></h5>
     <div class="row">
@@ -40,12 +65,12 @@ function bulan($bulan){
                 </tr>
             </thead>
             <?php
-    $sql = "SELECT id_menu, nama from menu where menu.status='disajikan'";
-    $res = $db->query($sql);
-    $data = $res->fetch_all(MYSQLI_ASSOC);
-    foreach($data as $row){
-        $id_menu = $row['id_menu'];
-    ?>
+                $sql = "SELECT id_menu, nama from menu";
+                $res = $db->query($sql);
+                $data = $res->fetch_all(MYSQLI_ASSOC);
+                foreach($data as $row){
+                    $id_menu = $row['id_menu'];
+                ?>
             <tr>
                 <td><?=$row['nama'];?></td>
                 <td>
@@ -70,8 +95,8 @@ function bulan($bulan){
         ?></td>
             </tr>
             <?php
-    }
-    ?>
+            }
+            ?>
             <thead>
                 <th class="text-center" colspan="3">Laporan Pemasukan</th>
                 <tr>
@@ -97,4 +122,34 @@ function bulan($bulan){
                 <td>Rp. <?=number_format($total,0,',','.');?></td>
             </tr>
         </table>
-        <?php } ?>
+    </div>
+    <button type="button" class="btn btn-success cetak">Cetak</button>
+    <!-- <button type="submit" class="btn btn-success save">Save</button> -->
+</div>
+
+
+<?php } ?>
+<script>
+$(document).ready(function() {
+    $(".cetak").on("click", function() {
+        window.print()
+    });
+});
+// $(document).ready(function() {
+//     $(".save").on("click", function() {
+//         var bulan = $("#bulan").val();
+//         var tahun = $("#tahun").val();
+//         $.ajax({
+//             url: "excel.php",
+//             method: "post",
+//             data: {
+//                 bulan: bulan,
+//                 tahun: tahun
+//             },
+//             success: function(data) {
+
+//             }
+//         });
+//     });
+// });
+</script>

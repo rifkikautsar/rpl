@@ -16,6 +16,9 @@ if (isset($_GET['page'])){
     else if ($page == 'menu'){
         include "dmenu.php";
     }
+    else if ($page == 'getlaporan'){
+        include "getlaporan.php";
+    }
     else {
         echo "Halaman Tidak Ditemukan!";
     }

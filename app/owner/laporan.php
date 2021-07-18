@@ -19,8 +19,9 @@ if($db->connect_errno==0){
 ?>
 
 <body>
-    <div class="home">
+    <div class="h-100">
         <h1 class="text-center py-2">Laporan Keuangan</h1>
+        <h3 class="text-center">Restoran iCendol</h3>
         <main>
             <div class="container-fluid d-flex pb-4" style="margin-left: auto;">
                 <div class="p-2 bd-highlight">Bulan</div>
@@ -40,6 +41,18 @@ if($db->connect_errno==0){
                     <option value="11">November</option>
                     <option value="12">Desember</option>
                 </select>
+                <div class="p-2 bd-highlight">Tahun</div>
+                <select name='tahun' class="form-select form-select-sm" id="tahun" aria-label=".form-select-sm example"
+                    style="width: 100px;">
+                    <?php
+                    $qry=mysqli_query($db, "SELECT tgl_pesan FROM pemesanan GROUP BY year(tgl_pesan)");
+                    while($t=mysqli_Fetch_array($qry)){
+                    $data = explode('-',$t['tgl_pesan']);
+                    $tahun = $data[0];
+                    echo "<option value='$tahun'>$tahun</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="col d-flex justify-content-center pb-5 detail">
             </div>
@@ -51,11 +64,13 @@ if($db->connect_errno==0){
 $(document).ready(function() {
     $("#bulan").on("change", function() {
         var bulan = $("#bulan").val();
+        var tahun = $("#tahun").val();
         $.ajax({
             url: "getlaporan.php",
             method: "post",
             data: {
-                bulan: bulan
+                bulan: bulan,
+                tahun: tahun
             },
             success: function(data) {
                 $(".detail").html(data);

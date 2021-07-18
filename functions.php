@@ -198,17 +198,17 @@ function validasiMenu($data) {
 	$ukuranFile = $_FILES['file']['size'];
     $error = $_FILES['file']['error'];
     $tmpName = $_FILES['file']['tmp_name'];
-	if (!in_array(mime_content_type($namaFile), $ekstensiYangDibolehkan)) {
+	if (!in_array(mime_content_type($tmpName), $ekstensiYangDibolehkan)) {
 		echo "
 		<script>
 		alert('File tidak sesuai!');
-		document.location.href = 'index.php';
+		document.location.href = 'form';
 		</script>";
-    }else if($ukuranFile > 1000 * 1000){
+    }else if($ukuranFile > 1000 * 10000){
 		echo "
 		<script>
 		alert('File terlalu besar!');
-		document.location.href = 'index.php';
+		document.location.href = 'form';
 		</script>";
 	}
 	else {

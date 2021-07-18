@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page-pelayan" href="../pelayan/">Home</a>
+                        <a class="nav-link active" aria-current="page-pelayan" href="home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="menu">Daftar Menu</a>

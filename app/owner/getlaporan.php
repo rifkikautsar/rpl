@@ -40,7 +40,7 @@ function bulan($bulan){
                 </tr>
             </thead>
             <?php
-    $sql = "SELECT id_menu, nama from menu";
+    $sql = "SELECT id_menu, nama from menu where menu.status='disajikan'";
     $res = $db->query($sql);
     $data = $res->fetch_all(MYSQLI_ASSOC);
     foreach($data as $row){

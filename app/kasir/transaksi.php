@@ -54,14 +54,27 @@
             $db1->commit();
             echo "
             <script>
-            alert('Pembayaran berhasil ditambahkan');
-            document.location.href = 'index.php';
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Pembayaran Selesai',
+                showConfirmButton: false,
+                timer: 1500
+              }).then(function() {
+                document.location.href = 'index.php';
+            });
             </script>";
         } catch ( Exception $e ) {
             $db1->rollBack();
             echo "
             <script>
-            alert('Pembayaran gagal');
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: 'Pembayaran Gagal',
+                showConfirmButton: false,
+                timer: 1500
+              });
             </script>";
         }
         }

@@ -62,8 +62,15 @@ if(isset($_REQUEST['checkout'])){
     
     echo "
     <script>
-    alert('Pesanan berhasil dibuat');
-    document.location.href = 'index.php';
+    Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Pesanan berhasil dibuat',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(function() {
+        document.location.href = 'index.php';
+    });
     </script>";
 }
 if(isset($_REQUEST['simpan'])){
@@ -99,8 +106,15 @@ if(isset($_POST['batal'])){
     if($res){
         echo "
         <script>
-        alert('Pesanan dibatalkan');
-        document.location.href = 'index.php';
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Pemesanan dibatalkan',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(function() {
+            document.location.href = 'index.php';
+        });
         </script>";
     }
 }

@@ -251,4 +251,20 @@ function getDaftarPesananKoki(){
 	else
 		return FALSE;
 }
+function getPengajuanMenu(){
+	$db=dbConnect();
+	if($db->connect_errno==0){
+		$sql = "select * from menu where stok > 0 and status = 'ditunda' order by id_menu";
+		$res=$db->query($sql);
+		if($res){
+			$data=$res->fetch_all(MYSQLI_ASSOC);
+			$res->free();
+			return $data;
+		}
+		else
+			return FALSE; 
+	}
+	else
+		return FALSE;
+}
 ?>

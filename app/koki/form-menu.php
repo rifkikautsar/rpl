@@ -51,17 +51,35 @@ if (isset($_POST["submit-menu"])) {
 
     if (validasiMenu($_POST) > 0) {
         echo "<script>
-                alert('Pengajuan Menu Berhasil.');
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Pengajuan Menu berhasil',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(function() {
+            document.location.href = 'form';
+        });
                 </script>";
                 //echo header("Location: home-koki.php"); 
     }
-    else
+    else{
     echo mysqli_error($db);
-    /*else {
-        echo "<script>
-        alert('Pengajuan Menu Gagal.');
-        </script>";
-    }*/
+    echo "<script>
+    Swal.fire({
+        position: 'top-center',
+        icon: 'error',
+        title: 'Pengajuan gagal',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    </script>";
+    }
+    // else {
+    //     echo "<script>
+    //     alert('Pengajuan Menu Gagal.');
+    //     </script>";
+    // }
 }
 ?>
 

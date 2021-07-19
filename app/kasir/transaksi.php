@@ -47,8 +47,8 @@
 
         try {
             $db1->beginTransaction();
-            $sh = $db1->prepare("UPDATE pemesanan SET pemesanan.status=? where id_pesanan=?");
-            $sh->execute(['bayar',$id_pesanan]);
+            $sh = $db1->prepare("UPDATE pemesanan SET pemesanan.status=?, pemesanan.ket=? where id_pesanan=?");
+            $sh->execute(['bayar','selesai',$id_pesanan]);
             $sh = $db1->prepare("INSERT into pembayaran values(?,?,?,?,?)");
             $sh->execute([$id_pembayaran,$id_pesanan,'PP001',$total,'cash']);
             $db1->commit();

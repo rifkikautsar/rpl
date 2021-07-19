@@ -1,6 +1,8 @@
 <title>List Pesanan</title>
 <style>
-
+.main {
+    min-height: 100vh;
+}
 </style>
 
 <body>
@@ -9,7 +11,7 @@ include_once("../../functions.php");
 $db=dbConnect();
 if($db->connect_errno == 0){
 ?>
-    <div class="h-100 pt-4">
+    <div class="h-100 pt-4 main">
         <form action="menu" method="POST">
             <h3 class="text-center">List Pesanan</h3>
             <center>

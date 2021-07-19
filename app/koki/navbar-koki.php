@@ -23,7 +23,7 @@
     <!-- Custom styles for this template-->
     <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

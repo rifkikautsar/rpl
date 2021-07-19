@@ -40,12 +40,17 @@ $list=$res->fetch_all(MYSQLI_ASSOC);
                     </td>
                     <td style="text-align: center;"><?=strtoupper($row['ket']);?>
                     </td>
-                    <td style="text-align: center;" colspan="2">
+                    <td style="text-align: center;">
+                        <?php if($row['ket']=='pickup' || $row['ket']=='selesai'){ ?>
                         <center>
-                            <button type="button" class="btn btn-primary view-data justify-content-center" name="pickup"
-                                id="<?=$row['id_pesanan'];?>">
-                                Pick Up</button>
+                            Telah di Pickup
                         </center>
+                        <?php } else if($row['ket']=="proses"){ ?>
+                        <center>
+                            <button type="submit" class="btn btn-primary justify-content-center" name="pickup">
+                                Pickup</button>
+                        </center>
+                        <?php }; ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

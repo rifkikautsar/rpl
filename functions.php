@@ -235,4 +235,20 @@ function getMenuBaru(){
 	else
 		return FALSE;
 }
+function getDaftarPesananKoki(){
+	$db=dbConnect();
+	if($db->connect_errno==0){
+		$sql= "SELECT p.id_pesanan,p.no_meja,p.tgl_pesan,p.ket, pel.nama,pel.id_pelanggan from pemesanan p join pelanggan pel using(id_pelanggan) where p.status = 'belum' and p.ket='proses' order by p.id_pesanan ASC";
+		$res=$db->query($sql);
+		if($res){
+			$data=$res->fetch_all(MYSQLI_ASSOC);
+			$res->free();
+			return $data;
+		}
+		else
+			return FALSE; 
+	}
+	else
+		return FALSE;
+}
 ?>

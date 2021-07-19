@@ -124,6 +124,8 @@ function bulan($bulan){
         </table>
     </div>
     <button type="button" class="btn btn-success cetak">Cetak</button>
+    <a href="https://selectpdf.com/export-to-pdf/?"
+        onclick="if(!this.urlAdded)href+='&url='+encodeURIComponent(location.href);this.urlAdded=1">Save as Pdf</a>
     <!-- <button type="submit" class="btn btn-success save">Save</button> -->
 </div>
 

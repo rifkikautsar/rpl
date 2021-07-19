@@ -29,6 +29,15 @@ else { ?>
 <body>
     <div class="home">
         <div class="container-fluid-welcome padding">
+            <?php 
+            include_once("../../functions.php");
+            $data = getDaftarPesananKoki();
+            if(!empty($data)):
+            ?>
+            <div class="alert alert-warning" role="alert">
+                Anda memiliki pesanan baru!
+            </div>
+            <?php endif;?>
             <div class="row welcome text-center pt-5">
                 <div class="col-12">
                     <div class="col-12">

@@ -28,7 +28,7 @@ if($db->connect_errno==0){
                     <div class="p-2 bd-highlight">Bulan</div>
                     <select class="form-select form-select-sm" name="bulan" id="bulan"
                         aria-label=".form-select-sm example" style="width: 200px;">
-                        <option selected>Pilih Bulan</option>
+                        <option value="0" selected>Pilih Bulan</option>
                         <option value="1">Januari</option>
                         <option value="2">Februari</option>
                         <option value="3">Maret</option>
@@ -54,9 +54,8 @@ if($db->connect_errno==0){
                     }
                     ?>
                     </select>
-
                 </div>
-                <div class="col d-flex justify-content-center pb-5 detail">
+                <div class="col d-flex justify-content-center pb-5 detail" id="detail">
                 </div>
             </main>
         </div>
@@ -68,17 +67,21 @@ $(document).ready(function() {
     $("#bulan").on("change", function() {
         var bulan = $("#bulan").val();
         var tahun = $("#tahun").val();
-        $.ajax({
-            url: "getlaporan.php",
-            method: "post",
-            data: {
-                bulan: bulan,
-                tahun: tahun
-            },
-            success: function(data) {
-                $(".detail").html(data);
-            }
-        });
+        if ($("#bulan").val() != 0) {
+            $.ajax({
+                url: "getlaporan.php",
+                method: "post",
+                data: {
+                    bulan: bulan,
+                    tahun: tahun
+                },
+                success: function(data) {
+                    $(".detail").html(data);
+                }
+            });
+        } else {
+            $("#detail").html("Tidak ada bulan yang terpilih!");
+        }
     });
 });
 // $(document).ready(function() {

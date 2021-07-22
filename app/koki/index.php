@@ -1,4 +1,36 @@
 <?php
+session_start();
+if (!isset($_SESSION["id_pegawai"])){
+header("Location: ../../index.php?error=4");
+}else if($_SESSION["jabatan"]!="koki"){
+    $jabatan = $_SESSION["jabatan"];
+    if($jabatan=="owner"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../owner/';
+        </script>";
+        
+    }
+    if($jabatan=="kasir"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../kasir/';
+        </script>";
+        
+    }
+    if($jabatan=="pelayan"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../pelayan/';
+        </script>";
+        
+    }
+}
+?>
+<?php
 include_once("navbar-koki.php");
 ?>
 <?php

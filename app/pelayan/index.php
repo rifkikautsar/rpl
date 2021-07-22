@@ -1,34 +1,34 @@
 <?php
-// session_start();
-// if (!isset($_SESSION["id_pegawai"])){
-// header("Location: ../../index.php?error=4");
-// }else if($_SESSION["jabatan"]!="pelayan"){
-//     $jabatan = $_SESSION["jabatan"];
-//     if($jabatan=="owner"){
-//         echo "
-//         <script>
-//         alert('Anda tidak memiliki akses ke halaman tersebut');
-//         document.location.href = '../owner/';
-//         </script>";
+session_start();
+if (!isset($_SESSION["id_pegawai"])){
+header("Location: ../../index.php?error=4");
+}else if($_SESSION["jabatan"]!="pelayan"){
+    $jabatan = $_SESSION["jabatan"];
+    if($jabatan=="owner"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../owner/';
+        </script>";
         
-//     }
-//     if($jabatan=="kasir"){
-//         echo "
-//         <script>
-//         alert('Anda tidak memiliki akses ke halaman tersebut');
-//         document.location.href = '../kasir/';
-//         </script>";
+    }
+    if($jabatan=="kasir"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../kasir/';
+        </script>";
         
-//     }
-//     if($jabatan=="koki"){
-//         echo "
-//         <script>
-//         alert('Anda tidak memiliki akses ke halaman tersebut');
-//         document.location.href = '../koki/';
-//         </script>";
+    }
+    if($jabatan=="koki"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../koki/';
+        </script>";
         
-//     }
-// }
+    }
+}
 ?>
 <?php
 include_once("navbar-pelayan.php");

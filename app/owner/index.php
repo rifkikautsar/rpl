@@ -1,3 +1,36 @@
+<?php
+session_start();
+if (!isset($_SESSION["id_pegawai"])){
+header("Location: ../../index.php?error=4");
+}else if($_SESSION["jabatan"]!="owner"){
+    $jabatan = $_SESSION["jabatan"];
+    if($jabatan=="pelayan"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../pelayan/';
+        </script>";
+        
+    }
+    if($jabatan=="kasir"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../kasir/';
+        </script>";
+        
+    }
+    if($jabatan=="koki"){
+        echo "
+        <script>
+        alert('Anda tidak memiliki akses ke halaman tersebut');
+        document.location.href = '../koki/';
+        </script>";
+        
+    }
+}
+?>
+
 <?php include("navbar-owner.php"); ?>
 
 <?php

@@ -24,8 +24,14 @@ if(isset($_REQUEST['hapus_pesan'])){
     $str = $db->escape_string($_POST['hapus_pesan']);
     $id_menu = $db->escape_string(substr($str,0,3));
     $id_pesanan = $db->escape_string(substr($str,4));
-    $sql_hapus = "delete from rincian_pesanan where id_menu='$id_menu' and id_pesanan ='$id_pesanan'" ;
-    $res=$db->query($sql_hapus);
+    $res=$db->query("SELECT jml_pesanan from rincian_pesanan where id_menu='$id_menu' and id_pesanan ='$id_pesanan'");
+    if($res){
+        $data = $res->fetch_assoc();
+        $jml_pesanan = $data['jml_pesanan'];
+        $res=$db->query("UPDATE menu set stok=stok+$jml_pesanan where id_menu = '$id_menu'");
+        $sql_hapus = "delete from rincian_pesanan where id_menu='$id_menu' and id_pesanan ='$id_pesanan'" ;
+        $res=$db->query($sql_hapus);
+    }
 }
 if(isset($_REQUEST['checkout'])){
     $jumlah = $db->escape_string($_REQUEST['jumlah']);
@@ -37,7 +43,7 @@ if(isset($_REQUEST['checkout'])){
     //update meja
     $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
     $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE(), pemesanan.status = 'belum', pemesanan.ket='proses' where id_pelanggan = '$id_pelanggan'");
-
+    $res=$db->query("UPDATE meja SET meja.status='isi' where no_meja ='$meja'");
     // $kd_meja = $_REQUEST['kd_meja'];
     // //update meja
     // $sql_meja = "UPDATE meja SET meja.status='isi' where kd_meja ='$kd_meja'";
@@ -97,6 +103,7 @@ if(isset($_REQUEST['simpan'])){
         $sql = "UPDATE rincian_pesanan SET jml_pesanan='$jml_menu', sub_total = '$harga'*'$jml_menu'
         WHERE id_menu = '$id_menu' and id_pesanan = '$id_psn'";
         $res=$db->query($sql);
+        $res=$db->query("UPDATE menu set stok=stok-'$jml_menu' where id_menu='$id_menu'");
     }
 }
 if(isset($_POST['batal'])){
@@ -148,8 +155,8 @@ if(isset($_POST['batal'])){
                                 </tr>
                                 <tr class="tampil">
                                     <td>Nama</td>
-                                    <td><input type="text" name="nama_pelanggan" id="nama_pelanggan" autocomplete="off"
-                                            value="<?php
+                                    <td><input type="text" name="nama_pelanggan" required id="nama_pelanggan"
+                                            autocomplete="off" value="<?php
                                             echo(isset($_POST['nama_pelanggan'])?$_POST['nama_pelanggan']:"");
                                             ?>"></td>
                                 </tr>

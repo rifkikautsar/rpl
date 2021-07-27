@@ -41,9 +41,10 @@
         if(isset($_POST['submit'])){
             $id_pesanan = $_POST['id_pesanan'];
             $total = $_POST['total'];
+            $id_meja = $_POST['no_meja'];
             $id_pembayaran = getName(10);
-        $db1= new PDO('mysql:host=localhost; dbname=rpl', 'root', '');
-        $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $db1= new PDO('mysql:host=localhost; dbname=rpl', 'root', '');
+            $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         try {
             $db1->beginTransaction();
@@ -51,6 +52,8 @@
             $sh->execute(['bayar','selesai',$id_pesanan]);
             $sh = $db1->prepare("INSERT into pembayaran values(?,?,?,?,?)");
             $sh->execute([$id_pembayaran,$id_pesanan,'PP001',$total,'cash']);
+            $sh = $db1->prepare("UPDATE meja set meja.status=? where no_meja = ?");
+            $sh->execute(['kosong',$id_meja]);
             $db1->commit();
             echo "
             <script>
@@ -107,9 +110,14 @@
                 <table class="tableT table-bordered border-dark table-hover rounded">
                     <thead class="tableT-green">
                         <?php
-                        $sql =  "SELECT pemesanan.`id_pesanan`, menu.`id_menu`, menu.`nama`, rincian_pesanan.`jml_pesanan`, menu.`harga`, rincian_pesanan.`sub_total` FROM pemesanan
+                        $sql =  "SELECT pemesanan.`id_pesanan`, menu.`id_menu`, menu.`nama`, 
+                        rincian_pesanan.`jml_pesanan`, menu.`harga`, rincian_pesanan.`sub_total`,
+                        meja.no_meja 
+                        FROM pemesanan
                             INNER JOIN rincian_pesanan ON  pemesanan.`id_pesanan` = rincian_pesanan.`id_pesanan`
-                            INNER JOIN menu ON menu.`id_menu` = rincian_pesanan.`id_menu` where pemesanan.id_pesanan = '$id_pesanan'";
+                            INNER JOIN menu ON menu.`id_menu` = rincian_pesanan.`id_menu` 
+                            JOIN meja using(no_meja)
+                            where pemesanan.id_pesanan = '$id_pesanan'";
                             $res = $db->query($sql);
                     
                         if($res){
@@ -131,10 +139,12 @@
 		            $data = $res->fetch_all(MYSQLI_ASSOC);
 		            foreach($data as $dt){
                     $id_pesanan = $dt['id_pesanan'];
+                    
                 ?>
 
                     <tr>
                         <input type="hidden" name="id_pesanan" value="<?=$dt["id_pesanan"];?>">
+                        <input type="hidden" name="no_meja" value="<?=$dt["no_meja"];?>">
                         <td><?php echo $dt["id_pesanan"]; ?></td>
                         <td><?php echo $dt["id_menu"]; ?></td>
                         <td><?php echo $dt["nama"]; ?></td>

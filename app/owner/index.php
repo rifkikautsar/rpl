@@ -77,7 +77,7 @@ else { ?>
             <div class="row welcome text-center pt-5">
                 <div class="col-12">
                     <div class="col-12">
-                        <h1>Selamat Datang Bos</h1>
+                        <h1>Selamat Datang <?=$_SESSION['nama'];?></h1>
                     </div>
                 </div>
             </div>

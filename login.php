@@ -38,9 +38,6 @@
                 </div>
                 <div class="form-group form-check" style="text-align: center;">
                     <label class="form-check-label">
-                        <div class="checkbox mb-3">
-                            <label> <input type="checkbox" value="remember-me" /> Remember me </label>
-                        </div>
                         <button class="w-100 btn btn-lg btn-outline-dark" type="submit" name="TblLogin">Masuk</button>
                 </div>
             </div>

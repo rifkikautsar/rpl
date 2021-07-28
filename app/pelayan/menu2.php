@@ -218,7 +218,7 @@ if(isset($_POST['batal'])){
                             <?php
                         $k = getMenu();
                         ?>
-                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <div class="row row-cols-1 row-cols-md-3 g-4" style="height: 470px; overflow: scroll;">
                                 <?php foreach($k as $row) :
                                     $nama_file =$row['file']; ?>
                                 <div class="col">

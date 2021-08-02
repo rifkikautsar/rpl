@@ -30,7 +30,7 @@ if($db->connect_errno == 0){
                             <h6 class="m-0 font-weight-bold text-primary">Pesanan</h6>
                         </div>
                         <!-- Card Body -->
-                        <div class="card-body p-0">
+                        <div class="card-body p-0" style="max-height: 450px; overflow: scroll;">
                             <table class="table table-borderless table-responsive-md">
                                 <tr>
                                     <th style="width: 15%; text-align: center;">ID Pesanan</th>

@@ -166,14 +166,15 @@ if(isset($_POST['batal'])){
                                     if(isset($_POST['id_pesanan'])){
                                     $id_pesanan = $_POST['id_pesanan'];
                                         if(empty($id_pesanan)){
-                                            $sql_get_id = "SELECT max(id_pesanan) as id_pesanan FROM pemesanan";
+                                            $id_pesanan = "PSN-";
+                                            $sql_get_id = "SELECT MAX(CAST(SUBSTRING(id_pesanan,5) AS SIGNED)) as id_pesanan FROM pemesanan";
                                             $res=$db->query($sql_get_id);
                                             $data=$res->fetch_assoc();
                                             if(empty($data)){
-                                                $id_pesanan=1;
+                                                $id_pesanan="PSN-1";
                                             }else{
                                             $angka = (int)$data['id_pesanan']+1;
-                                            $id_pesanan = $angka;
+                                            $id_pesanan = "PSN-".$angka;
                                             }
                                             echo $id_pesanan;
                                         }else echo $id_pesanan;

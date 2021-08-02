@@ -57,7 +57,7 @@ if($db->connect_errno==0){
 
                     <div class="card-body" style="height: 450px; overflow: scroll;">
                         <div class="row row-cols-1 row-cols-md-3 g-4">
-                            <?php $k = getMenu(); foreach($k as $row) :
+                            <?php $k = getMenuKoki(); foreach($k as $row) :
                                 $nama_file =$row['file']; ?>
 
                             <div class="col">

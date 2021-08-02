@@ -100,10 +100,21 @@ if(isset($_REQUEST['simpan'])){
         $jml_menu = $array[$i]['jumlah'];
         $id_psn = $array[$i]['id_pesanan'];
         $harga = $array[$i]['harga'];
+        $sql = "SELECT jml_pesanan from rincian_pesanan where id_pesanan = '$id_psn' and id_menu = '$id_menu'";
+        $res=$db->query($sql);
+            if($res){
+                $dt = $res->fetch_assoc();
+                if($dt['jml_pesanan']>$jml_menu){
+                    $jml_akhir = $dt['jml_pesanan']-$jml_menu;
+                    $res=$db->query("UPDATE menu set stok=stok+'$jml_akhir' where id_menu='$id_menu'");
+                }else if($dt['jml_pesanan']<$jml_menu){
+                    $jml_akhir = $jml_menu-$dt['jml_pesanan'];
+                    $res=$db->query("UPDATE menu set stok=stok-'$jml_akhir' where id_menu='$id_menu'");
+                }
+            }
         $sql = "UPDATE rincian_pesanan SET jml_pesanan='$jml_menu', sub_total = '$harga'*'$jml_menu'
         WHERE id_menu = '$id_menu' and id_pesanan = '$id_psn'";
         $res=$db->query($sql);
-        $res=$db->query("UPDATE menu set stok=stok-'$jml_menu' where id_menu='$id_menu'");
     }
 }
 if(isset($_POST['batal'])){

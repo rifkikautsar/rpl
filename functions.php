@@ -267,4 +267,20 @@ function getPengajuanMenu(){
 	else
 		return FALSE;
 }
+function getMenuKoki(){
+	$db=dbConnect();
+	if($db->connect_errno==0){
+		$sql = "select * from menu where status = 'disajikan' order by id_menu";
+		$res=$db->query($sql);
+		if($res){
+			$data=$res->fetch_all(MYSQLI_ASSOC);
+			$res->free();
+			return $data;
+		}
+		else
+			return FALSE; 
+	}
+	else
+		return FALSE;
+}
 ?>

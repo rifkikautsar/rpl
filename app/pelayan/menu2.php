@@ -52,7 +52,6 @@ if(isset($_REQUEST['checkout'])){
                        "harga"=>$harga[$i],
                        "jumlah"=>$jumlah[$i]);
     }
-    var_dump($array);
     try {
         $db1->beginTransaction();
         $sh=$db1->exec("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");

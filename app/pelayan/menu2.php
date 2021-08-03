@@ -34,21 +34,16 @@ if(isset($_REQUEST['hapus_pesan'])){
     }
 }
 if(isset($_REQUEST['checkout'])){
-    $jumlah = $db->escape_string($_REQUEST['jumlah']);
-    $menu = $db->escape_string($_REQUEST['nama_menu']);
+    $jumlah = $_REQUEST['jumlah'];
+    $menu = $_REQUEST['nama_menu'];
     $id = $_REQUEST['id_menu'];
     $id_psn = $db->escape_string($_REQUEST['id_pesanan']);
     $meja = $db->escape_string($_REQUEST['kd_meja']);
     $id_pelanggan = $db->escape_string($_REQUEST['id_pel']);
+    $harga = $_REQUEST['harga'];
     //update meja
-    $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
-    $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE(), pemesanan.status = 'belum', pemesanan.ket='proses' where id_pelanggan = '$id_pelanggan'");
-    $res=$db->query("UPDATE meja SET meja.status='isi' where no_meja ='$meja'");
-    // $kd_meja = $_REQUEST['kd_meja'];
-    // //update meja
-    // $sql_meja = "UPDATE meja SET meja.status='isi' where kd_meja ='$kd_meja'";
-    // $res=$db->query($sql_meja);
-
+    $db1= new PDO('mysql:host=localhost; dbname=rpl', 'root', '');
+    $db1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //update stok
     for($i=0; $i<count($id);$i++){
         $array[]=array("id_menu"=>$id[$i],
@@ -57,27 +52,52 @@ if(isset($_REQUEST['checkout'])){
                        "harga"=>$harga[$i],
                        "jumlah"=>$jumlah[$i]);
     }
-    for($i=0;$i<count($array);$i++){
-        $id_menu = $array[$i]['id_menu'];
-        $jml_menu = $array[$i]['jumlah'];
-        $id_psn = $array[$i]['id_pesanan'];
-        $sql = "UPDATE menu SET stok=stok-'$jml_menu'
-        WHERE id_menu = '$id_menu'";
-        $res=$db->query($sql);
+    var_dump($array);
+    try {
+        $db1->beginTransaction();
+        $sh=$db1->exec("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
+        $sh=$db1->exec("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE(), pemesanan.status = 'belum', pemesanan.ket='proses' where id_pelanggan = '$id_pelanggan'");
+        $sh=$db1->exec("UPDATE meja SET meja.status='isi' where no_meja ='$meja'");
+        for($i=0;$i<count($array);$i++){
+            $id_menu = $array[$i]['id_menu'];
+            $jml_menu = $array[$i]['jumlah'];
+            $id_psn = $array[$i]['id_pesanan'];
+            $sql = "UPDATE menu SET stok=stok-'$jml_menu'
+            WHERE id_menu = '$id_menu'";
+            $res=$db->query($sql);
+            $sh=$db1->exec("UPDATE menu SET stok=stok-'$jml_menu'
+            WHERE id_menu = '$id_menu'");
+        }
+        $db1->commit();
+        echo "
+        <script>
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Pesanan berhasil dibuat',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(function() {
+            document.location.href = 'index.php';
+        });
+        </script>";
+    }catch( PDOException $e){
+        $db1->rollBack();
+        echo (DEVELOPMENT?'ERROR : '.$e->getMessage():'');
+        echo "
+            <script>
+            Swal.fire({
+            title: 'Data gagal ditambahkan',
+            icon: 'error',
+            showCloseButton: true,
+            })
+            </script>
+            ";
     }
-    
-    echo "
-    <script>
-    Swal.fire({
-        position: 'top-center',
-        icon: 'success',
-        title: 'Pesanan berhasil dibuat',
-        showConfirmButton: false,
-        timer: 1500
-      }).then(function() {
-        document.location.href = 'index.php';
-    });
-    </script>";
+
+    // $res=$db->query("UPDATE pelanggan SET no_meja='$meja' where id_pelanggan = '$id_pelanggan'");
+    // $res=$db->query("UPDATE pemesanan SET no_meja='$meja',tgl_pesan=CURDATE(), pemesanan.status = 'belum', pemesanan.ket='proses' where id_pelanggan = '$id_pelanggan'");
+    // $res=$db->query("UPDATE meja SET meja.status='isi' where no_meja ='$meja'");
 }
 if(isset($_REQUEST['simpan'])){
     $jumlah = $_REQUEST['jumlah'];

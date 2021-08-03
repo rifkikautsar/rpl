@@ -38,7 +38,7 @@ if($db->connect_errno == 0){
                                     <th style="width: 10%; text-align: center;">No Meja</th>
                                     <th style="width: 15%; text-align: center;">Tanggal</th>
                                     <th style="width: 10%; text-align: center;">Keterangan</th>
-                                    <th style="width: 25%; text-align: center;">Aksi</th>
+                                    <th style="width: 25%; text-align: center;" colspan="2">Aksi</th>
                                 </tr>
                                 <?php $list = getDaftarPesanan(); ?>
                                 <?php foreach($list as $row): ?>
@@ -61,16 +61,40 @@ if($db->connect_errno == 0){
                                             </center>
                                             <?php } else if($row['ket']=="proses"){ ?>
                                             <center>
-                                                <button type="submit" class="btn btn-primary justify-content-center"
+                                                <button type="submit" class="btn btn-secondary justify-content-center"
                                                     name="pickup">
                                                     Pickup</button>
                                             </center>
                                             <?php }; ?>
                                         </td>
+                                        <td style="text-align: center;"><button type="button"
+                                                class="btn btn-primary view-data" value="view"
+                                                id="<?=$row['id_pesanan'];?>">
+                                                Detail</button></td>
                                     </tr>
                                 </form>
                                 <?php endforeach; ?>
                             </table>
+                            <!-- Modal Detail -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">List Pesanan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body detail">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,6 +130,21 @@ if($db->connect_errno == 0){
 $(document).ready(function() {
     $("#keyword").on('keyup', function() {
         $("#container").load("cari.php?keyword=" + $("#keyword").val());
+    });
+
+    $(".view-data").on("click", function() {
+        var id_pesanan = $(this).attr("id");
+        $.ajax({
+            url: "get-detail-list.php",
+            method: "post",
+            data: {
+                id_pesanan: id_pesanan
+            },
+            success: function(data) {
+                $(".detail").html(data);
+                $("#staticBackdrop").modal("show");
+            }
+        })
     });
 });
 </script>

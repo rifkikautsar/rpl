@@ -302,7 +302,7 @@ if(isset($_POST['batal'])){
                                                 value="<?=$pesanan['harga'];?>">
                                             <center>
                                                 <input type="number" value="<?=$pesanan['jml_pesanan'];?>"
-                                                    style="width: 5em" id="jumlah" name="jumlah[]">
+                                                    style="width: 5em" id="jumlah" name="jumlah[]" required>
                                             </center>
                                         </th>
                                         <td>

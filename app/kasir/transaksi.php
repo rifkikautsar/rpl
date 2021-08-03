@@ -92,7 +92,7 @@
                     </div>
                     <div class="container-fluid d-flex flex-row pb-4" style="margin-left: 130px;">
                         <div class="p-2 bd-highlight">ID Pemesanan</div>
-                        <div class="card text-center" style="width: 5rem; height: auto;">
+                        <div class="card text-center" style="width: 10rem; height: auto;">
                             <div class="card-header">
                                 <?php
 	                    
